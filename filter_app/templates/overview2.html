@@ -71,49 +71,37 @@
 						<table class="table" data-sort="table">
 							<thead>
 								<tr>
+									<th class="header">Date</th>
 									<th class="header">Tool</th>
 									<th class="header">Module</th>
-									<th class="header">Current Filter</th>
-									<th class="header">Description</th>
-									<th class="header">Date</th>
+									<th class="header">Filter</th>
+									<th class="header">Comment</th>
+									<th class="header">Who?</th>
 								</tr>
 							</thead>
 							<tbody>
-								{% for module in module_list %}
+								{% for swap in swap_list %}
 								<tr>
 									<td>
-										{{ module.main_tool.name }}
+										{{ swap.date }}
 									</td>
 									<td>
-										{{ module.name }}
+										{{ swap.module.main_tool }}
 									</td>
 									<td>
-										{{  module.current_filter.product_code }}
+										{{ swap.module }}
 									</td>
 									<td>
-										{% for chem in module.chemistry.all %}
-											{{ chem }}
-										{% endfor %}
+										{{ swap.swapped_filter }}
 									</td>
 									<td>
-										Datum
+										{{ swap.comment }}
+									</td>
+									<td>
+										{{ swap.who }}
 									</td>
 								</tr>
 								{% endfor %}
-								<tr>
-									<td>
-										inhoud
-									</td>
-									<td>
-										Meer
-									</td>
-									<td>
-										Hier komt een brede kolom, mogelijk met meerdere rijen. De flex table past zijn breedte automatisch aan
-									</td>
-									<td>
-										2/06/1095
-									</td>
-								</tr>
 							</tbody>
 						</table>
 					</div>

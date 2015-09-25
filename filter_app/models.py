@@ -41,19 +41,25 @@ class Chemistry(models.Model):
 
 class Tool(models.Model):
 
-	name = models.CharField(max_length=32, unique=True)
+	CR_CHOICES = (
+	    ('FAB1', 'FAB1'),
+	    ('FAB2', 'FAB2'),
+	)
+
+	name = models.CharField(max_length=8, unique=True)
+	cleanroom = models.CharField(max_length=16, choices=CR_CHOICES, default='FAB1', null=True)
 
 	class Meta:
 		app_label = 'filter_app'
 		verbose_name = 'tool'
 		verbose_name_plural = 'tools'
+		ordering = ['name', ]
 
 	def __unicode__(self):
 		return self.name
 
 	def __str__(self):
 		return self.name
-
 
 
 class Module(models.Model):
@@ -81,11 +87,13 @@ class FilterSwap(models.Model):
 	swapped_filter = models.ForeignKey(Filter, related_name='swaps')
 	comment = models.TextField()
 	date = models.DateField('Date', default=datetime.date.today)
+	who = models.CharField(max_length=32, null=True)
 
 	class Meta:
 		app_label = 'filter_app'
 		verbose_name = 'filter swap'
 		verbose_name_plural = 'filter swaps'
+		ordering = ['-date']
 
 	def __unicode__(self):
 		return str(self.module) + ': filter changed on ' + str(self.date)
