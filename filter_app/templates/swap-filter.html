@@ -53,9 +53,9 @@
 								<a href="{% url 'history' %}">Filter History</a>
 							</li>
 							<li>
-								<a href="{% url 'test' fab='fab1' tool='' %}">Tool View</a>
+								<a href="#">Tool View</a>
 							</li>
-							<li>
+							<li class="active">
 								<a href="#">Change Filter</a>
 							</li>
 						</ul>
@@ -63,66 +63,68 @@
 				</nav>
 			</div>
 			<div class="col-sm-9 col-xs-12 content">
-				<div class="dashhead">
-					<div class="dashhead-titles">
-						<h6 class="dashhead-subtitle">Filter Views</h6>
-						<h2 class="dashhead-title">Filter Overview</h2>
-					</div>
+				<div class="hr-divider">
+					<ul class="nav nav-pills hr-divider-content hr-divider-nav" role="tablist">
+						<li  {% if fab == 'fab1' %}class="active"{% endif %} role="presentation">
+							<a href="{% url 'test' fab='fab1' tool='' %}">Fab1</a>
+						</li>
+						<li {% if fab == 'fab2' %}class="active"{% endif %} role="presentation">
+							<a href="{% url 'test' fab='fab2' tool='' %}" {% if fab == 'fab2' %}class="active"{% endif %}>Fab2</a>
+						</li>
+					</ul>
 				</div>
-				<div class="table-full">
-					<div class="table-responsive">
-						<table class="table" data-sort="table">
-							<thead>
-								<tr>
-									<th class="header">Tool</th>
-									<th class="header">Module</th>
-									<th class="header">Current Filter</th>
-									<th class="header">Description</th>
-									<th class="header">Date</th>
-								</tr>
-							</thead>
-							<tbody>
-								{% for module in module_list %}
-								<tr>
-									<td>
-										{{ module.main_tool.name }}
-									</td>
-									<td>
-										{{ module.name }}
-									</td>
-									<td>
-										{{  module.current_filter.product_code }}
-									</td>
-									<td>
-										{% for chem in module.chemistry.all %}
-											{{ chem }}
+				<div class="row">
+					<div class="col-sm-3 col-xs-4">
+						<ul class="nav nav-bordered nav-stacked">
+							<li class="nav-header">Tools</li>
+							{% for tool in tool_list %}
+							<li {% if tool.name|lower == current_tool %}class="active"{% endif %}>
+								<a href="{% url 'test' fab=tool.cleanroom|lower tool=tool.name|lower %}">{{ tool.name|upper }}</a>
+							</li>
+						{% endfor %}
+						</ul>
+					</div>
+					<div class="col-sm-9 col-xs-8">
+						<div class="dashhead">
+						  	<div class="dashhead-titles">
+						    	<h3 class="dashhead-title">DNS_1</h3>
+						  	</div>
+						</div>
+						<div class="table-full">
+							<div class="table-responsive">
+								<table class="table" data-sort="table">
+									<thead>
+										<tr>
+											<th class="header">Module</th>
+											<th class="header">Current Filter</th>
+											<th class="header">Previous Filter</th>
+											<th class="header">Last Change</th>
+										</tr>
+									</thead>
+									<tbody>
+										{% for module in modules %}
+										<tr>
+											<td>
+												{{ module.name }}
+											</td>
+											<td>
+												{{ module.current_filter }}
+											</td>
+											<td>
+												{{  module.previous_filter }}
+											</td>
+											<td>
+												{{ module.swaps.last.date }}
+											</td>
+										</tr>
 										{% endfor %}
-									</td>
-									<td>
-										Datum
-									</td>
-								</tr>
-								{% endfor %}
-							</tbody>
-						</table>
+									</tbody>
+								</table>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 {% endblock content %}
-
-{% block extra_js %}
-	{{ block.super }}
-	<script type="text/javascript" src="{% static 'js/tablesorter.min.js' %}"></script>
-	<script>
-		$(document).ready(function() {
-	  		// call the tablesorter plugin
-	  		$("[data-sort=table]").tablesorter({
-	    		// Sort on the second column, in ascending order
-	    		//sortList: [[0,0]]
-	  		});
-		});
-	</script>
-{% endblock extra_js %}
-

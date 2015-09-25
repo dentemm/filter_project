@@ -76,10 +76,10 @@ class Module(models.Model):
 		verbose_name_plural = 'modules'
 
 	def __unicode__(self):
-		return self.name
+		return self.main_tool.name + '-' +self.name
 
 	def __str__(self):
-		return self.name
+		return self.main_tool.name + '-' +self.name
 
 class FilterSwap(models.Model):
 

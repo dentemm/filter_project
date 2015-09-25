@@ -32,12 +32,7 @@ class ToolView(ListView):
 
 	def get_context_data(self, **kwargs):
 
-		#print self.fab
-		#print self.tool
-
 		modules = models.Module.objects.filter(main_tool__name__iexact=self.tool).prefetch_related()
-
-		#print modules
 
 		ctx = super(ToolView, self).get_context_data(**kwargs)
 
