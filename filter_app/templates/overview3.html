@@ -62,11 +62,11 @@
 			<div class="col-sm-9 col-xs-12 content">
 				<div class="hr-divider">
 					<ul class="nav nav-pills hr-divider-content hr-divider-nav" role="tablist">
-						<li class="active" role="presentation">
+						<li  {% if fab == 'fab1' %}class="active"{% endif %} role="presentation">
 							<a href="{% url 'test' fab='fab1' tool='' %}">Fab1</a>
 						</li>
-						<li role="presentation">
-							<a href="{% url 'test' fab='fab2' tool='' %}">Fab2</a>
+						<li {% if fab == 'fab2' %}class="active"{% endif %} role="presentation">
+							<a href="{% url 'test' fab='fab2' tool='' %}" {% if fab == 'fab2' %}class="active"{% endif %}>Fab2</a>
 						</li>
 					</ul>
 				</div>
@@ -75,7 +75,7 @@
 						<ul class="nav nav-bordered nav-stacked">
 							<li class="nav-header">Tools</li>
 							{% for tool in tool_list %}
-							<li {% if forloop.first %}class="active"{% endif %}>
+							<li {% if tool.name|lower == current_tool %}class="active"{% endif %}>
 								<a href="{% url 'test' fab=tool.cleanroom|lower tool=tool.name|lower %}">{{ tool.name|upper }}</a>
 							</li>
 						{% endfor %}
@@ -115,20 +115,6 @@
 											</td>
 										</tr>
 										{% endfor %}
-										<tr>
-											<td>
-												inhoud
-											</td>
-											<td>
-												Meer
-											</td>
-											<td>
-												Hier komt een bren
-											</td>
-											<td>
-												2/06/1095
-											</td>
-										</tr>
 									</tbody>
 								</table>
 							</div>
