@@ -1,4 +1,4 @@
-from datetime import datetime
+import datetime 
 
 from django.db import models
 
@@ -9,34 +9,95 @@ class Filter(models.Model):
 	manufacturer = models.CharField(max_length=255)
 	pore_size = models.CharField(max_length=32)
 
+	class Meta:
+		app_label = 'filter_app'
+		verbose_name = 'filter'
+		verbose_name_plural = 'filters'
+
+	def __unicode__(self):
+		return self.product_code
+
+	def __str__(self):
+		return self.product_code
+
 class Chemistry(models.Model):
 
 	name = models.CharField(max_length=32)
 	concentration = models.CharField(max_length=32)
 
+	class Meta:
+		app_label = 'filter_app'
+		verbose_name = 'chemistry'
+		verbose_name_plural = 'chemicals'
+
+	def __unicode__(self):
+		return str(self.name) + ' ' + str(self.concentration)
+
+	def __str__(self):
+		return str(self.name) + ' ' + str(self.concentration)
+
 class Tool(models.Model):
 
 	name = models.CharField(max_length=32, unique=True)
+
+	class Meta:
+		app_label = 'filter_app'
+		verbose_name = 'tool'
+		verbose_name_plural = 'tools'
+
+	def __unicode__(self):
+		return self.name
+
+	def __str__(self):
+		return self.name
 
 
 class Module(models.Model):
 
 	name = models.CharField(max_length=32)
 	main_tool = models.ForeignKey(Tool)
-	filters = models.ManyToManyField(Filter, related_name='modules')
+	current_filter = models.ForeignKey(Filter, related_name='modules')
+	previous_filter = models.ForeignKey(Filter, related_name='+', null=True) # No backwards relation!
+	chemistry = models.ManyToManyField(Chemistry, related_name='modules')
 
+	class Meta:
+		app_label = 'filter_app'
+		verbose_name = 'module'
+		verbose_name_plural = 'modules'
 
-class FilterHistory(models.Model):
+	def __unicode__(self):
+		return self.name
 
-	module = OneToOneField(Module)
-
-	current_filter = models.ForeignKey(Filter)
-	previous_filter = models.ForeignKey(Filter)
+	def __str__(self):
+		return self.name
 
 class FilterSwap(models.Model):
 
 	module = models.ForeignKey(Module, related_name='swaps')
 	swapped_filter = models.ForeignKey(Filter, related_name='swaps')
 	comment = models.TextField()
-	date = models.DateField('Date', default=datetime.date.today())
+	date = models.DateField('Date', default=datetime.date.today)
 
+	class Meta:
+		app_label = 'filter_app'
+		verbose_name = 'filter swap'
+		verbose_name_plural = 'filter swaps'
+
+	def __unicode__(self):
+		return str(self.module) + ': filter changed on ' + str(self.date)
+
+	def __str__(self):
+		return str(self.module) + ': filter changed on ' + str(self.date)
+
+	def save(self, *args, **kwargs):
+
+		active_filter = self.module.current_filter
+
+		if active_filter and self.swapped_filter != active_filter:
+
+			self.module.previous_filter = active_filter
+
+			print 'filter swapped!'
+			print self.module.previous_filter
+
+		super(FilterSwap, self).save(*args, **kwargs)
