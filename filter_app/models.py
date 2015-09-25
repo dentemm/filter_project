@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.db import models
 
 # Create your models here.
@@ -21,7 +23,7 @@ class Module(models.Model):
 
 	name = models.CharField(max_length=32)
 	main_tool = models.ForeignKey(Tool)
-	filters = models.ManyToManyField(Filter)
+	filters = models.ManyToManyField(Filter, related_name='modules')
 
 
 class FilterHistory(models.Model):
@@ -33,7 +35,8 @@ class FilterHistory(models.Model):
 
 class FilterSwap(models.Model):
 
-	module = models.OneToOneField(Module)
-	swapped_filter = models.OneToOne(Filter)
+	module = models.ForeignKey(Module, related_name='swaps')
+	swapped_filter = models.ForeignKey(Filter, related_name='swaps')
 	comment = models.TextField()
+	date = models.DateField('Date', default=datetime.date.today())
 
