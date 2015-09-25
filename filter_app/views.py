@@ -7,7 +7,7 @@ from . import models
 class OverviewPage(ListView):
 
 	model = models.Module
-	context_object_name = 'module'
+	context_object_name = 'module_list'
 	template_name = 'overview.html'
 
 	def get_queryset(self):

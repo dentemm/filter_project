@@ -36,6 +36,9 @@ class Chemistry(models.Model):
 	def __str__(self):
 		return str(self.name) + ' ' + str(self.concentration)
 
+	def description(self):
+		return str(self.name) + ' ' + str(self.concentration)
+
 class Tool(models.Model):
 
 	name = models.CharField(max_length=32, unique=True)
@@ -50,6 +53,7 @@ class Tool(models.Model):
 
 	def __str__(self):
 		return self.name
+
 
 
 class Module(models.Model):

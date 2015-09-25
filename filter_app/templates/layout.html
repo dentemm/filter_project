@@ -1,5 +1,15 @@
 {% extends 'base.html' %}
 
+{% load staticfiles %}
+
+{% block extra_css %}
+	<link rel="stylesheet" href="{% static 'css/toolkit-inverse.min.css' %}">
+{% endblock extra_css %}
+
 {% block content %}
-	<p>hier komt de inhoud</p>
 {% endblock content %}
+
+{% block extra_js %}
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="{% static 'js/toolkit.min.js' %}"></script>
+{% endblock extra_js %}
