@@ -1,1 +1,14 @@
 {% extends 'layout.html' %}
+
+{% load staticfiles %}
+
+{% block extra_css %}
+	<link rel="stylesheet" href="{% static 'css/toolkit-inverse.min.css' %}">
+{% endblock extra_css %}
+
+{% block navbar %}
+{% endblock navbar %}
+
+{% block extra_js %}
+	<script type="text/javascript" src="{% static 'js/tookit.min.js' %}"></script>
+{% endblock extra_js %}
