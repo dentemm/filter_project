@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+
+<form method="post" action="">
+	{% csrf_token %}
+	<table>
+	{{ form.as_p }}
+	</table>
+	<input type="submit" value="Submit Form"/>
+</form>

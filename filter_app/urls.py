@@ -9,4 +9,7 @@ urlpatterns = [
 	url(r'^tools/$', views.ToolView.as_view(), name='tools'),
 
 	url(r'^tools/(?P<fab>[\w-]+)/(?P<tool>[\w-]*)$', views.ToolView.as_view(), name='test'),
+
+	url(r'^new/$', views.SwapCreateView.as_view(), name='new-swap'),
+	
 ]

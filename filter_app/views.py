@@ -1,6 +1,7 @@
-from django.views.generic import ListView, TemplateView
+from django.views.generic import ListView, TemplateView, CreateView, UpdateView
 
 from . import models
+from . import forms
 
 # Create your views here.
 
@@ -48,3 +49,13 @@ class ToolView(ListView):
 		self.tool = self.kwargs['tool']
 
 		return self.model.objects.filter(cleanroom__iexact=self.fab).prefetch_related()
+
+class SwapCreateView(CreateView):
+	
+	template_name = 'filterswap_form.html'
+	model = models.FilterSwap
+	#fields = '__all__'
+
+	form_class = forms.SwapForm
+
+
