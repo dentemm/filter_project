@@ -53,7 +53,7 @@ class ToolView(ListView):
 class SwapCreateView(CreateView):
 	
 	template_name = 'filterswap_form.html'
-	model = models.FilterSwap
+	#model = models.FilterSwap
 	#fields = '__all__'
 
 	form_class = forms.SwapForm
