@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     # additional third party apps 
+    'widget_tweaks',
 
     # custom apps
     'filter_app',

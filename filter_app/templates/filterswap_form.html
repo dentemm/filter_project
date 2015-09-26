@@ -1,13 +1,89 @@
 {% extends 'layout.html' %}
 
+{% load widget_tweaks %}
 
 {% block content %}
-<form method="post" action="">
-	{% csrf_token %}
-	<table>
-	{{ form.as_p }}
-	</table>
-	<input type="submit" value="Submit Form"/>
-</form>
+<div class="container">
+	<div class="row">
+		<form method="post" action="">
+		{% csrf_token %}
+			<div class="col-md-2">
+				<h6>Module</h6>
+			</div>
+			<div class="col-md-10">
+				<select class="custom-select">
+				{% for x in form.module.field.queryset %}
+				 	<option>{{ x.name | upper }}</option>
+				{% endfor %}
+				</select>
+			</div>
+			<div class="col-md-2">
+				<h6>Filter</h6>
+			</div>
+			<div class="col-md-10">
+				<select class="custom-select">
+				{% for x in form.swapped_filter.field.queryset %}
+				 	<option>{{ x.product_code | title }}</option>
+				{% endfor %}
+				</select>
+			</div>
+			<div class="col-md-2">
+				<h6>Comment</h6>
+			</div>
+			<div class="col-md-4">
+				{{ form.comment|add_class:"form-control"|attr:"rows:5" }}
+			</div>
+			<div class="col-md-2">
+				<h6>Date</h6>
+			</div>
+			<div class="col-md-4">
+				<div class="input-group">
+  					<span class="input-group-addon">
+				    	<span class="icon icon-calendar"></span>
+				  	</span>
+				  	{{ form.date|add_class:"form-control"|set_data:"provide:datepicker" }}
+				</div>
+			</div>
+			<div class="col-md-2">
+				<h6>Who</h6>
+			</div>
+			<div class="col-md-4">
+				{{ form.who|add_class:"form-control" }}
+				</select>
+			</div>
+
+			<br/><br/><br/><br/><br/><br/>
+			<div class="row">
+				<div class="col-md-8">
+					<input type="submit" value="Submit Form"/>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="row">
+		<div class="col-md-8">
+			<form method="post" action="">
+				{{ form.as_p }}
+				<div class="row">
+					<div class="col-md-8">
+						<input type="submit" value="Submit Form"/>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
 
 {% endblock content %}
+
+{% block extra_js %}
+	{{ block.super }}
+	<script>
+		$('.datepicker').datepicker({
+			todayHighlight: true,
+			weekstart: 1,
+		    format: 'dd/mm/yyyy',
+		    startDate: '-3d'
+		})
+	</script>
+{% endblock extra_js %}
