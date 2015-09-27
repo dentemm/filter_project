@@ -53,7 +53,7 @@ class Tool(models.Model):
 		app_label = 'filter_app'
 		verbose_name = 'tool'
 		verbose_name_plural = 'tools'
-		ordering = ['name', ]
+		ordering = ['cleanroom', 'name', ]
 
 	def __unicode__(self):
 		return self.name

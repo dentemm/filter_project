@@ -46,7 +46,15 @@ class ToolView(ListView):
 	def get_queryset(self):
 
 		self.fab = self.kwargs['fab']
-		self.tool = self.kwargs['tool']
+
+		if not self.kwargs['tool']:
+
+			#print 'geen tool'
+			self.tool = models.Tool.objects.filter(cleanroom__iexact=self.fab).first().name.lower()
+			#print self.tool
+
+		else:
+			self.tool = self.kwargs['tool']
 
 		return self.model.objects.filter(cleanroom__iexact=self.fab).prefetch_related()
 
