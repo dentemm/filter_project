@@ -1,4 +1,5 @@
-from django.views.generic import ListView, TemplateView, CreateView, UpdateView
+from django.views.generic import ListView, TemplateView, CreateView, UpdateView, DeleteView
+from django.core.urlresolvers import reverse_lazy
 
 from . import models
 from . import forms
@@ -61,6 +62,8 @@ class ToolView(ListView):
 class SwapCreateView(CreateView):
 	
 	template_name = 'filterswap_form.html'
+
+	success_url = reverse_lazy('')
 	#model = models.FilterSwap
 	#fields = '__all__'
 
@@ -70,4 +73,30 @@ class SwapCreateView(CreateView):
 
 		print 'in post methode geraakt'
 
+class SwapUpdateView(UpdateView):
+	
+	template_name = 'filterswap_form.html'
 
+	success_url = reverse_lazy('')
+	#model = models.FilterSwap
+	#fields = '__all__'
+
+	form_class = forms.SwapForm
+
+	def post(self, request, *args, **kwargs):
+
+		print 'in post methode geraakt'
+
+class SwapDeleteView(DeleteView):
+
+	template_name = 'filterswap_form.html'
+
+	success_url = reverse_lazy('history')
+	#model = models.FilterSwap
+	#fields = '__all__'
+
+	form_class = forms.SwapForm
+
+	def post(self, request, *args, **kwargs):
+
+		print 'in post methode geraakt'

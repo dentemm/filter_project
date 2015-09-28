@@ -46,7 +46,7 @@
 					<div class="collapse nav-toggleable-sm" id="nav-toggleable-sm">
 						<ul class="nav nav-pills nav-stacked">
 							<li class="nav-header">Filter Views</li>
-							<li>
+							<li class="active">
 								<a href="{% url 'overview' %}">Filter Overview</a>
 							</li>
 							<li>
@@ -56,7 +56,7 @@
 								<a href="{% url 'test' fab='fab1' tool='' %}">Tool View</a>
 							</li>
 							<li>
-								<a href="#">Change Filter</a>
+								<a href="{% url 'new-swap' %}">Change Filter</a>
 							</li>
 						</ul>
 					</div>

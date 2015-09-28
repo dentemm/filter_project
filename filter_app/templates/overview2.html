@@ -49,11 +49,14 @@
 							<li>
 								<a href="{% url 'overview' %}">Filter Overview</a>
 							</li>
-							<li>
+							<li class="active">
 								<a href="{% url 'history' %}">Filter History</a>
 							</li>
 							<li>
-								<a href="#">Tool View</a>
+								<a href="{% url 'test' fab='fab1' tool='' %}">Tool View</a>
+							</li>
+							<li>
+								<a href="{% url 'new-swap' %}">Change Filter</a>
 							</li>
 						</ul>
 					</div>
