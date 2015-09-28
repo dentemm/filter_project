@@ -5,16 +5,17 @@
 {% block content %}
 <div class="container">
 	<div class="row">
-		<form method="post" action="">
+		<form method="post" action="{% url 'new-swap' %}">
 		{% csrf_token %}
 			<div class="col-md-2">
 				<h6>Module</h6>
 			</div>
 			<div class="col-md-10">
 				<select class="custom-select">
-				{% for x in form.module.field.queryset %}
+					<option>--Select--</option>
+					{% for x in form.module.field.queryset %}
 				 	<option>{{ x.name | upper }}</option>
-				{% endfor %}
+					{% endfor %}
 				</select>
 			</div>
 			<div class="col-md-2">
@@ -22,9 +23,10 @@
 			</div>
 			<div class="col-md-10">
 				<select class="custom-select">
-				{% for x in form.swapped_filter.field.queryset %}
+					<option>--Select--</option>
+					{% for x in form.swapped_filter.field.queryset %}
 				 	<option>{{ x.product_code | title }}</option>
-				{% endfor %}
+					{% endfor %}
 				</select>
 			</div>
 			<div class="col-md-2">
