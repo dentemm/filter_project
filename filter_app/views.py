@@ -63,6 +63,7 @@ class ToolListSwapView(ListView):
 
 	model = models.Tool
 	context_object_name = 'tool_list'
+	template_name = 'filterswap_form2.html'
 
 	def get_queryset(self):
 
@@ -77,7 +78,8 @@ class ModulesForToolSwapView(ListView):
 
 class SwapCreateView(CreateView):
 	
-	template_name = 'filterswap_form.html'
+	#template_name = 'filterswap_form.html'
+	template_name = 'form.html'
 
 	success_url = reverse_lazy('')
 	#model = models.FilterSwap
@@ -94,9 +96,6 @@ class SwapUpdateView(UpdateView):
 	template_name = 'filterswap_form.html'
 
 	success_url = reverse_lazy('')
-	#model = models.FilterSwap
-	#fields = '__all__'
-
 	form_class = forms.SwapForm
 
 	def post(self, request, *args, **kwargs):

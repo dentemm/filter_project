@@ -1,0 +1,58 @@
+{% load widget_tweaks %}
+
+<form method="post" action="{% url 'new-swap' %}">
+{% csrf_token %}
+	<div class="col-md-2">
+		<h6>Module</h6>
+	</div>
+	<div class="col-md-10">
+		<select class="custom-select">
+			<option>--Select--</option>
+			{% for x in form.module.field.queryset %}
+		 	<option>{{ x.name | upper }}</option>
+			{% endfor %}
+		</select>
+	</div>
+	<div class="col-md-2">
+		<h6>Filter</h6>
+	</div>
+	<div class="col-md-10">
+		<select class="custom-select">
+			<option>--Select--</option>
+			{% for x in form.swapped_filter.field.queryset %}
+		 	<option>{{ x.product_code | title }}</option>
+			{% endfor %}
+		</select>
+	</div>
+	<div class="col-md-2">
+		<h6>Comment</h6>
+	</div>
+	<div class="col-md-4">
+		{{ form.comment|add_class:"form-control"|attr:"rows:5" }}
+	</div>
+	<div class="col-md-2">
+		<h6>Date</h6>
+	</div>
+	<div class="col-md-4">
+		<div class="input-group">
+				<span class="input-group-addon">
+		    	<span class="icon icon-calendar"></span>
+		  	</span>
+		  	{{ form.date|add_class:"form-control"|set_data:"provide:datepicker"|set_data:"date-format:yyyy/mm/dd" }}
+		</div>
+	</div>
+	<div class="col-md-2">
+		<h6>Who</h6>
+	</div>
+	<div class="col-md-4">
+		{{ form.who|add_class:"form-control" }}
+	</div>
+
+	<br/><br/><br/><br/><br/><br/>
+	<div class="row">
+		<div class="col-md-8">
+			<a class="btn btn-lg btn-default-outline" type="button" href="{% url 'overview' %}">Go Back</a>
+			<input class="btn btn-lg btn-primary-outline" type="submit" value="Submit Form"/>
+		</div>
+	</div>
+</form>
