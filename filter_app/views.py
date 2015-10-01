@@ -59,6 +59,22 @@ class ToolView(ListView):
 
 		return self.model.objects.filter(cleanroom__iexact=self.fab).prefetch_related()
 
+class ToolListSwapView(ListView):
+
+	model = models.Tool
+	context_object_name = 'tool_list'
+
+	def get_queryset(self):
+
+		print list(self.model.objects.values_list('name', flat=True))
+
+		return self.model.objects.values_list('name', flat=True)
+
+class ModulesForToolSwapView(ListView):
+
+	pass
+
+
 class SwapCreateView(CreateView):
 	
 	template_name = 'filterswap_form.html'
@@ -100,3 +116,5 @@ class SwapDeleteView(DeleteView):
 	def post(self, request, *args, **kwargs):
 
 		print 'in post methode geraakt'
+
+

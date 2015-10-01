@@ -9,6 +9,8 @@ urlpatterns = [
 	url(r'^tools/$', views.ToolView.as_view(), name='tools'),
 	url(r'^new/$', views.SwapCreateView.as_view(), name='new-swap'),
 
+	url(r'^new/test/$', views.ToolListSwapView.as_view(), name='test'),
+
 
 	url(r'^tools/(?P<fab>[\w-]+)/(?P<tool>[\w-]*)$', views.ToolView.as_view(), name='test'),
 
