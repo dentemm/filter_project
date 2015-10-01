@@ -80,12 +80,24 @@ class SwapCreateView(CreateView):
 	
 	#template_name = 'filterswap_form.html'
 	template_name = 'form.html'
-
 	success_url = reverse_lazy('')
 	#model = models.FilterSwap
 	#fields = '__all__'
 
+	#tool = self.request.GET.get('tool', '')
+
 	form_class = forms.SwapForm
+
+	def get_form_kwargs(self):
+
+		kwargs = super(SwapCreateView, self).get_form_kwargs()
+
+		kwargs['tool'] = self.request.GET.get('tool', '')
+
+		print 'model form tool: ' + str(kwargs['tool'])
+
+		return kwargs
+
 
 	def post(self, request, *args, **kwargs):
 
