@@ -75,6 +75,27 @@ class ModulesForToolSwapView(ListView):
 
 	pass
 
+class FormHandler(CreateView):
+
+	template_name = 'form-content.html'
+	success_url = reverse_lazy('')
+
+	form_class = forms.SwapForm
+
+	def post(self, request, *args, **kwargs):
+
+		print 'in post methode geraakt'
+
+	def get_form_kwargs(self):
+
+		kwargs = super(FormHandler, self).get_form_kwargs()
+
+		kwargs['tool'] = self.request.GET.get('tool', '')
+
+		print 'model form tool: ' + str(kwargs['tool'])
+
+		return kwargs
+
 
 class SwapCreateView(CreateView):
 	
@@ -86,7 +107,19 @@ class SwapCreateView(CreateView):
 
 	#tool = self.request.GET.get('tool', '')
 
+	tools = []
+
 	form_class = forms.SwapForm
+
+	def get_context_data(self, **kwargs):
+
+		self.tools = list(models.Tool.objects.values_list('name', flat=True))
+
+		ctx = super(SwapCreateView, self).get_context_data(**kwargs)
+		ctx['tools'] = self.tools
+
+		return ctx
+
 
 	def get_form_kwargs(self):
 

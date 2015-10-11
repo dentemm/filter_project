@@ -4,14 +4,16 @@ $("#first-select").change(function() {
 
 	$.ajax({
 		type: "GET",
-	  	url: "/filters/new/",
-	  	data: "tool="+$(this).val(),
+	  	url: "/filters/formtest/",
+	  	data: {
+	  		tool: $(this).val()
+	  	},
 	  	success: success_handler 
 	});
 
 	function success_handler(data){
 
 		console.log(data)
-		$("#form-container").html(data);
+		$(".form-container").html(data);
 	}
 });
