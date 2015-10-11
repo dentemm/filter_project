@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load filter_tags %}
+
 {% block navbar %}
 	<nav class="iconav">
 		<a class="iconav-brand" href="#">
@@ -38,16 +40,16 @@
 			<div class="collapse nav-toggleable-sm" id="nav-toggleable-sm">
 				<ul class="nav nav-pills nav-stacked">
 					<li class="nav-header">Filter Views</li>
-					<li class="active">
+					<li class="{% active request overview %}">
 						<a href="{% url 'overview' %}">Filter Overview</a>
 					</li>
-					<li>
+					<li class="{% active request test %}">
 						<a href="{% url 'test' fab='fab1' tool='' %}">Tool View</a>
 					</li>
-					<li>
+					<li class="{% active request history %}">
 						<a href="{% url 'history' %}">Filter History</a>
 					</li>
-					<li>
+					<li class="{% active request new-swap %}">
 						<a href="{% url 'new-swap' %}">Change Filter</a>
 					</li>
 				</ul>
