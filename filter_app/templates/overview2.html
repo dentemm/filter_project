@@ -33,35 +33,6 @@
 {% block content %}
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-3 sidebar">
-				<nav class="sidebar-nav">
-					<div class="sidebar-header">
-						<button class="nav-toggler nav-toggler-sm sidebar-toggler" type="button" data-toggle="collapse" data-target="#nav-toggleable-sm">
-							<span class="sr-only">Toggle nav</span>
-						</button>
-						<a class="sidebar-brand img-responsive" href="#">
-							<span class="icon icon-leaf sidebar-brand-icon"> Filters</span>
-						</a>
-					</div>
-					<div class="collapse nav-toggleable-sm" id="nav-toggleable-sm">
-						<ul class="nav nav-pills nav-stacked">
-							<li class="nav-header">Filter Views</li>
-							<li>
-								<a href="{% url 'overview' %}">Filter Overview</a>
-							</li>
-							<li class="active">
-								<a href="{% url 'history' %}">Filter History</a>
-							</li>
-							<li>
-								<a href="{% url 'test' fab='fab1' tool='' %}">Tool View</a>
-							</li>
-							<li>
-								<a href="{% url 'new-swap' %}">Change Filter</a>
-							</li>
-						</ul>
-					</div>
-				</nav>
-			</div>
 			<div class="col-sm-9 col-xs-12 content">
 				<div class="dashhead">
 					<div class="dashhead-titles">

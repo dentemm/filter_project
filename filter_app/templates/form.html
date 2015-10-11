@@ -19,5 +19,5 @@
 
 {% block extra_js %}
 	{{ block.super }}
-	<script type="text/javascript" src="{% static 'js/application.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/application.js' %}" defer></script>
 {% endblock extra_js %}

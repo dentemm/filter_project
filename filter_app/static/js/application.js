@@ -13,7 +13,7 @@ $("#first-select").change(function() {
 
 	function success_handler(data){
 
-		console.log(data)
+		//console.log(data)
 		$(".form-container").html(data);
 	}
 });
