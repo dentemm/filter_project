@@ -161,4 +161,7 @@ class SwapDeleteView(DeleteView):
 
 		print 'in post methode geraakt'
 
+class HomeView(TemplateView):
+
+	template_name = 'index.html'
 

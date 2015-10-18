@@ -15,5 +15,5 @@ urlpatterns = [
 
 	url(r'^tools/(?P<fab>[\w-]+)/(?P<tool>[\w-]*)$', views.ToolView.as_view(), name='test'),
 
-
+	url(r'^index/$', views.HomeView.as_view(), name='home'),
 ]
