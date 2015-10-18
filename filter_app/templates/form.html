@@ -3,19 +3,25 @@
 {% load widget_tweaks staticfiles %}
 
 {% block content %}
-<select id="first-select" class="custom-select">
-	<option>--Select--</option>
-	{% for tool in tools %}
-	<option>{{ tool|upper }}</option>
-	{% endfor %}
-</select>
+	<div class="col-sm-9 col-xs-12 content">
 
-<form method="post" action="{% url 'new-swap' %}">
-{% csrf_token %}
-	<div class="form-container">
+		<select id="first-select" class="custom-select">
+			<option>--Select--</option>
+			{% for tool in tools %}
+			<option>{{ tool|upper }}</option>
+			{% endfor %}
+		</select>
+
+		<!--- The form needed for the selected tool will be inserted in this form-container -->
+		<form method="post" action="{% url 'new-swap' %}">
+		{% csrf_token %}
+			<div class="form-container">
+			test
+			</div>
+		</form>
 	</div>
-</form>
 {% endblock content %}
+
 
 {% block extra_js %}
 	{{ block.super }}
