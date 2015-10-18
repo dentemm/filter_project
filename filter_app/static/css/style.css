@@ -2,3 +2,51 @@ table {
 	font-size: 14px;
 	font-weight: 300;
 }
+
+/*Toevoeging: smallere marges*/
+.m-a-sm {
+	margin: 10px !important;
+}
+.m-t-sm {
+	margin-top: 10px !important;
+}
+.m-r-sm {
+	margin-right: 10px !important;
+}
+.m-b-sm {
+	margin-bottom: 10px !important;
+}
+.m-l-sm {
+	margin-left: 10px !important;
+}
+.m-x-sm {
+	margin-right: 10px !important;
+	margin-left: 10px !important;
+}
+.m-y-sm { 
+	margin-top: 10px !important;
+	margin-bottom: 10px !important;
+}
+.m-a-xs {
+	margin: 5px !important;
+}
+.m-t-xs {
+	margin-top: 5px !important;
+}
+.m-r-xs {
+	margin-right: 5px !important;
+}
+.m-b-xs {
+	margin-bottom: 5px !important;
+}
+.m-l-xs {
+	margin-left: 5px !important;
+}
+.m-x-xs {
+	margin-right: 5px !important;
+	margin-left: 5px !important;
+}
+.m-y-xs { 
+	margin-top: 5px !important;
+	margin-bottom: 5px !important;
+}
