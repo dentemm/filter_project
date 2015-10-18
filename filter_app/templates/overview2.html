@@ -7,29 +7,6 @@
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 {% endblock extra_css %}
 
-{% block navbar %}
-	<nav class="iconav">
-		<a class="iconav-brand" href="#">
-			<span class="iconav-brand-icon icon icon-tools"></span>
-		</a>
-		<div class="iconav-slider">
-			<ul class="nav nav-pills iconav-nav">
-				<li>
-					<a href="#" title="Overview" data-toggle="tooltip" data-placement="right" data-container=".iconav">
-						<span class="icon icon-home"></span>
-						<small class="iconav-nav-label visible-xs-block">Overview</small>
-					</a>
-				</li>
-				<li>
-					<a href="#" title="Overview" data-toggle="tooltip" data-placement="right" data-container=".iconav">
-						<span class="icon icon-leaf"></span>
-						<small class="iconav-nav-label visible-xs-block">Overview</small>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
-{% endblock navbar %}
 {% block content %}
 	<div class="container">
 		<div class="row">
@@ -37,7 +14,7 @@
 				<div class="dashhead">
 					<div class="dashhead-titles">
 						<h6 class="dashhead-subtitle">Filter Views</h6>
-						<h2 class="dashhead-title">Filter Overview</h2>
+						<h2 class="dashhead-title">Filter History</h2>
 					</div>
 				</div>
 				<div class="table-full">
