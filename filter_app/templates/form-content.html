@@ -10,7 +10,8 @@
 			<select class="custom-select">
 				<option>--Select--</option>
 				{% for x in form.module.field.queryset %}
-		 		<option>{{ x.name | upper }}</option>
+		 		<option>{{ x }}</option>
+		 		<!--<option>{{ x.name | upper }}</option>-->
 				{% endfor %}
 			</select>
 		</div>
@@ -23,7 +24,8 @@
 			<select class="custom-select">
 				<option>--Select--</option>
 				{% for x in form.swapped_filter.field.queryset %}
-			 	<option>{{ x.product_code | title }}</option>
+			 	<option>{{ x }}</option>
+			 	<!--<option>{{ x.product_code | title }}</option>-->
 				{% endfor %}
 			</select>
 		</div>

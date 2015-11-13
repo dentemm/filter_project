@@ -81,12 +81,32 @@ class FormHandler(CreateView):
 	success_url = reverse_lazy('')
 
 	form_class = forms.SwapForm
+	#form_class = forms.TestForm
 
-	print 'form handler'
-
-	def post(self, request, *args, **kwargs):
+	'''def post(self, request, *args, **kwargs):
 
 		print 'in post methode geraakt'
+
+		if form.is_valid():
+
+			print 'form is valid'
+
+		else:
+
+			print 'invalid form'''
+
+	def clean(self):
+
+		print 'clean'
+
+	def form_valid(self, form):
+
+		print 'form valid'
+
+	def form_invalid(self, form):
+
+		print 'form invalid'
+		print form
 
 	def get_form_kwargs(self):
 
@@ -94,7 +114,7 @@ class FormHandler(CreateView):
 
 		kwargs['tool'] = self.request.GET.get('tool', '')
 
-		print 'model form tool: ' + str(kwargs['tool'])
+		#print 'model form tool: ' + str(kwargs['tool'])
 
 		return kwargs
 
@@ -112,6 +132,7 @@ class SwapCreateView(CreateView):
 	tools = []
 
 	form_class = forms.SwapForm
+	#form_class = forms.TestForm
 
 	def get_context_data(self, **kwargs):
 
@@ -144,6 +165,8 @@ class SwapUpdateView(UpdateView):
 
 	success_url = reverse_lazy('')
 	form_class = forms.SwapForm
+	#form_class = forms.TestForm
+	
 
 	def post(self, request, *args, **kwargs):
 
@@ -158,6 +181,7 @@ class SwapDeleteView(DeleteView):
 	#fields = '__all__'
 
 	form_class = forms.SwapForm
+	#form_class = forms.TestForm
 
 	def post(self, request, *args, **kwargs):
 
