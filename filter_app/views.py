@@ -82,6 +82,8 @@ class FormHandler(CreateView):
 
 	form_class = forms.SwapForm
 
+	print 'form handler'
+
 	def post(self, request, *args, **kwargs):
 
 		print 'in post methode geraakt'

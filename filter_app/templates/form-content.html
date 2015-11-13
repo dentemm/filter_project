@@ -1,6 +1,6 @@
 {% load widget_tweaks %}
 <hr>
-<form method="post" action="{% url 'new-swap' %}">
+<form method="post" action="{% url 'form-handler' %}">
 {% csrf_token %}
 	<div class="row m-b-xs">
 		<div class="col-sm-3">
@@ -57,11 +57,11 @@
 			{{ form.who|add_class:"form-control" }}
 		</div>
 	</div>
-</form>
-<div class="row m-t-lg">
-	<div class="col-sm-8 col-sm-offset-0">
-		<a class="btn btn-lg btn-default-outline" type="button" href="{% url 'overview' %}">Go Back</a>
-		<!--<a class="btn btn-lg btn-default-outline" type="button" href="{{request.META.HTTP_REFERER}}">test</a>-->
-		<input class="btn btn-lg btn-primary-outline" type="submit" value="Submit Form"/>
+	<div class="row m-t-lg">
+		<div class="col-sm-8 col-sm-offset-0">
+			<a class="btn btn-lg btn-default-outline" type="button" href="{% url 'overview' %}">Go Back</a>
+			<!--<a class="btn btn-lg btn-default-outline" type="button" href="{{request.META.HTTP_REFERER}}">test</a>-->
+			<input class="btn btn-lg btn-primary-outline" type="submit" value="Submit"/>
+		</div>
 	</div>
-</div>
+</form>
