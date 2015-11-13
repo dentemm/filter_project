@@ -1,6 +1,7 @@
 from django.forms import ModelForm, ModelChoiceField, BaseModelFormSet
+from django.forms.models import inlineformset_factory
 
-from .models import FilterSwap, Module
+from .models import FilterSwap, Module, Filter
 
 class SwapForm(ModelForm):
 
@@ -8,19 +9,24 @@ class SwapForm(ModelForm):
 
 		super(SwapForm, self).__init__(*args, **kwargs)
 
-
-
 		#tool = self.request.GET.get('tool', '')
 		#print "here: " + str(tool)
-		self.fields['module'] = ModelChoiceField(queryset=Module.objects.filter(main_tool__name__iexact=tool))
-
-
+		self.fields['module'] = ModelChoiceField(queryset=Module.objects.filter(main_tool__name__iexact=tool), to_field_name='name')
 
 
 	class Meta:
 		model = FilterSwap
 		#fields = ['module', 'swapped_filter', 'comment', 'date', 'who']
 		fields = '__all__'
+
+class FilterForm(ModelForm):
+
+	class Meta:
+		model = Filter
+		fields = '__all__'
+
+
+#SwapFormSet = inlineformset_factory(Filter, FilterSwap) 
 
 '''
 class TestForm(BaseModelFormSet):

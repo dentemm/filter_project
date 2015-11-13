@@ -64,7 +64,7 @@ class Tool(models.Model):
 
 class Module(models.Model):
 
-	name = models.CharField(max_length=32)
+	name = models.CharField(max_length=32, unique=True)
 	main_tool = models.ForeignKey(Tool)
 	current_filter = models.ForeignKey(Filter, related_name='modules')
 	previous_filter = models.ForeignKey(Filter, related_name='+', null=True) # No backwards relation!
