@@ -9,10 +9,15 @@ class SwapForm(ModelForm):
 
 		super(SwapForm, self).__init__(*args, **kwargs)
 
-		#tool = self.request.GET.get('tool', '')
-		#print "here: " + str(tool)
-		#self.fields['module'] = ModelChoiceField(queryset=Module.objects.filter(main_tool__name__iexact=tool), to_field_name='name')
-		self.fields['module'] = ModelChoiceField(queryset=Module.objects.all(), to_field_name='name')
+		
+		if tool != '':
+			print 'tis ni gelijk'
+			self.fields['module'] = ModelChoiceField(queryset=Module.objects.filter(main_tool__name__iexact=tool), to_field_name='name')
+
+		else:
+			print 'tis gelijk'
+			self.fields['module'] = ModelChoiceField(queryset=Module.objects.all(), to_field_name='name')
+
 		self.fields['swapped_filter'] = ModelChoiceField(queryset=Filter.objects.all(), to_field_name='product_code')
 
 
@@ -27,21 +32,4 @@ class FilterForm(ModelForm):
 		model = Filter
 		fields = '__all__'
 
-
-#SwapFormSet = inlineformset_factory(Filter, FilterSwap) 
-
-'''
-class TestForm(BaseModelFormSet):
-
-	def __init__(self, tool, *args, **kwargs):
-
-		super(TestForm, self).__init__(*args, **kwargs)
-
-		self.queryset = SwapForm.objects.all()
-
-	class Meta:
-
-		model = FilterSwap
-		fields = '__all__'
-'''
 

@@ -110,6 +110,8 @@ class FormHandler(CreateView):
 
 	def get_form_kwargs(self):
 
+		print 'get form kwargs van form handler'
+
 		kwargs = super(FormHandler, self).get_form_kwargs()
 
 		kwargs['tool'] = self.request.GET.get('tool', '')
@@ -146,6 +148,8 @@ class SwapCreateView(CreateView):
 
 	def get_form_kwargs(self):
 
+		print 'get form kwargs van swapcreateview'
+
 		kwargs = super(SwapCreateView, self).get_form_kwargs()
 
 		kwargs['tool'] = self.request.GET.get('tool', '')
@@ -157,7 +161,7 @@ class SwapCreateView(CreateView):
 
 	def post(self, request, *args, **kwargs):
 
-		print 'in post methode geraakt'
+		print 'in post methode geraakt van swap'
 
 class SwapUpdateView(UpdateView):
 	

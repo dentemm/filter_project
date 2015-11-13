@@ -85,7 +85,7 @@ class FilterSwap(models.Model):
 
 	#tool = models.ForeignKey(Tool, related_name='swaps')
 	module = models.ForeignKey(Module, related_name='swaps')
-	module = models.ForeignKey(Module, related_name='+')
+	#module = models.ForeignKey(Module, related_name='+')
 	#jeej = models.OneToOneField(Module, related_name='neej')
 	swapped_filter = models.ForeignKey(Filter, related_name='swaps')
 	comment = models.TextField()
