@@ -42,8 +42,10 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('comment', models.TextField()),
                 ('date', models.DateField(default=datetime.date.today, verbose_name=b'Date')),
+                ('who', models.CharField(max_length=32, null=True)),
             ],
             options={
+                'ordering': ['-date'],
                 'verbose_name': 'filter swap',
                 'verbose_name_plural': 'filter swaps',
             },
@@ -52,9 +54,9 @@ class Migration(migrations.Migration):
             name='Module',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('name', models.CharField(max_length=32)),
+                ('name', models.CharField(unique=True, max_length=32)),
                 ('chemistry', models.ManyToManyField(related_name='modules', to='filter_app.Chemistry')),
-                ('current_filter', models.ForeignKey(related_name='modules', to='filter_app.Filter')),
+                ('current_filter', models.ForeignKey(related_name='+', to='filter_app.Filter')),
             ],
             options={
                 'verbose_name': 'module',
@@ -65,9 +67,11 @@ class Migration(migrations.Migration):
             name='Tool',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('name', models.CharField(unique=True, max_length=32)),
+                ('name', models.CharField(unique=True, max_length=8)),
+                ('cleanroom', models.CharField(default=b'FAB1', max_length=16, null=True, choices=[(b'FAB1', b'FAB1'), (b'FAB2', b'FAB2')])),
             ],
             options={
+                'ordering': ['cleanroom', 'name'],
                 'verbose_name': 'tool',
                 'verbose_name_plural': 'tools',
             },

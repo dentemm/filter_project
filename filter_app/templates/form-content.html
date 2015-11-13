@@ -2,63 +2,8 @@
 <hr>
 <form method="post" action="{% url 'form-handler' %}">
 {% csrf_token %}
-	<div class="row m-b-xs">
-		<div class="col-sm-3">
-			<h5>Module</h5>
-		</div>
-		<div class="col-sm-9">
-			<select class="custom-select" id="id_module" name="module">
-				<option>--Select--</option>
-				{% for x in form.module.field.queryset %}
-		 		<option>{{ x.name }}</option>
-		 		<!--<option>{{ x.name | upper }}</option>-->
-				{% endfor %}
-			</select>
-		</div>
-	</div>
-	<div class="row m-b-xs">
-		<div class="col-sm-3">
-			<h5>Filter</h5>
-		</div>
-		<div class="col-sm-9">
-			<select class="custom-select" id="id_swapped_filter" name="swapped_filter">
-				<option>--Select--</option>
-				{% for x in form.swapped_filter.field.queryset %}
-			 	<option>{{ x }}</option>
-			 	<!--<option>{{ x.product_code | title }}</option>-->
-				{% endfor %}
-			</select>
-		</div>
-	</div>
-	<div class="row m-b-xs">
-		<div class="col-sm-3">
-			<h5>Comment</h5>
-		</div>
-		<div class="col-sm-6">
-			{{ form.comment|add_class:"form-control"|attr:"rows:5" }}
-		</div>
-	</div>
-	<div class="row m-b-xs">
-		<div class="col-sm-3">
-			<h5>Date</h5>
-		</div>
-		<div class="col-sm-3">
-			<div class="input-group">
-					<span class="input-group-addon">
-			    	<span class="icon icon-calendar"></span>
-			  	</span>
-			  	{{ form.date|add_class:"form-control"|set_data:"provide:datepicker"|set_data:"date-format:yyyy/mm/dd" }}
-			</div>
-		</div>
-	</div>
-	<div class="row m-b-xs">
-		<div class="col-sm-3">
-			<h5>Who</h5>
-		</div>
-		<div class="col-sm-3">
-			{{ form.who|add_class:"form-control" }}
-		</div>
-	</div>
+	{{ form }}
+
 	<div class="row m-t-lg">
 		<div class="col-sm-8 col-sm-offset-0">
 			<a class="btn btn-lg btn-default-outline" type="button" href="{% url 'overview' %}">Go Back</a>

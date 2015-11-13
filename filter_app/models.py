@@ -66,7 +66,7 @@ class Module(models.Model):
 
 	name = models.CharField(max_length=32, unique=True)
 	main_tool = models.ForeignKey(Tool)
-	current_filter = models.ForeignKey(Filter, related_name='modules')
+	current_filter = models.ForeignKey(Filter, related_name='+')
 	previous_filter = models.ForeignKey(Filter, related_name='+', null=True) # No backwards relation!
 	chemistry = models.ManyToManyField(Chemistry, related_name='modules')
 
@@ -76,7 +76,7 @@ class Module(models.Model):
 		verbose_name_plural = 'modules'
 
 	def __unicode__(self):
-		return self.main_tool.name + '-' +self.name
+		return self.name
 
 	def __str__(self):
 		return self.main_tool.name + '-' +self.name
@@ -85,6 +85,8 @@ class FilterSwap(models.Model):
 
 	#tool = models.ForeignKey(Tool, related_name='swaps')
 	module = models.ForeignKey(Module, related_name='swaps')
+	module = models.ForeignKey(Module, related_name='+')
+	#jeej = models.OneToOneField(Module, related_name='neej')
 	swapped_filter = models.ForeignKey(Filter, related_name='swaps')
 	comment = models.TextField()
 	date = models.DateField('Date', default=datetime.date.today)

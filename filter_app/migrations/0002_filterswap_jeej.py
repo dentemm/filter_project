@@ -13,7 +13,8 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AddField(
             model_name='filterswap',
-            name='who',
-            field=models.CharField(max_length=32, null=True),
+            name='jeej',
+            field=models.OneToOneField(related_name='neej', default=1, to='filter_app.Module'),
+            preserve_default=False,
         ),
     ]

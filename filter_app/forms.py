@@ -11,7 +11,9 @@ class SwapForm(ModelForm):
 
 		#tool = self.request.GET.get('tool', '')
 		#print "here: " + str(tool)
-		self.fields['module'] = ModelChoiceField(queryset=Module.objects.filter(main_tool__name__iexact=tool), to_field_name='name')
+		#self.fields['module'] = ModelChoiceField(queryset=Module.objects.filter(main_tool__name__iexact=tool), to_field_name='name')
+		self.fields['module'] = ModelChoiceField(queryset=Module.objects.all(), to_field_name='name')
+		self.fields['swapped_filter'] = ModelChoiceField(queryset=Filter.objects.all(), to_field_name='product_code')
 
 
 	class Meta:
