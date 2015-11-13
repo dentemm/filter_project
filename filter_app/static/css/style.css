@@ -3,7 +3,7 @@ table {
 	font-weight: 300;
 }
 
-/*Toevoeging: smallere marges*/
+/*Addition: extra margins and padding classes */
 .m-a-sm {
 	margin: 10px !important;
 }
