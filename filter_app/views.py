@@ -186,3 +186,16 @@ class HomeView(TemplateView):
 
 	template_name = 'index.html'
 
+
+class ModulesForToolView(ListView):
+
+	model = models.Module
+	context_object_name = 'module_list'
+	template_name = 'tool-view-table-content.html'
+
+	def get_queryset(self):
+
+		#print list(self.model.objects.values_list('name', flat=True))
+
+		return self.model.objects.values_list('name', flat=True)
+

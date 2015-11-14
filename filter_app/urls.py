@@ -12,6 +12,8 @@ urlpatterns = [
 
 	url(r'^new/test/$', views.ToolListSwapView.as_view(), name='test'),
 
+	url(r'^latest/(?P<tool>[\w-]+)/$', views.ModulesForToolView.as_view(), name='modules-for-tool'),
+
 
 	url(r'^tools/(?P<fab>[\w-]+)/(?P<tool>[\w-]*)$', views.ToolView.as_view(), name='test'),
 
