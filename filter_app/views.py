@@ -78,22 +78,11 @@ class ModulesForToolSwapView(ListView):
 class FormHandler(CreateView):
 
 	template_name = 'form-content.html'
-	success_url = reverse_lazy('')
+	success_url = reverse_lazy('overview')
 
 	form_class = forms.SwapForm
 	#form_class = forms.TestForm
 
-	'''def post(self, request, *args, **kwargs):
-
-		print 'in post methode geraakt'
-
-		if form.is_valid():
-
-			print 'form is valid'
-
-		else:
-
-			print 'invalid form'''
 
 	def clean(self):
 
@@ -102,11 +91,13 @@ class FormHandler(CreateView):
 	def form_valid(self, form):
 
 		print 'form valid'
+		print form
+
+		return super(FormHandler, self).form_valid(form)
 
 	def form_invalid(self, form):
 
 		print 'form invalid'
-		print form
 
 	def get_form_kwargs(self):
 
