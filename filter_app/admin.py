@@ -9,7 +9,7 @@ class ToolAdmin(admin.ModelAdmin):
 
 @admin.register(models.Module)
 class ModuleAdmin(admin.ModelAdmin):
-	exclude = ['previous_filter', ]
+	exclude = ['previous_filter',]
 
 @admin.register(models.Chemistry)
 class ChemistryAdmin(admin.ModelAdmin):

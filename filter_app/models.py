@@ -69,6 +69,7 @@ class Module(models.Model):
 	current_filter = models.ForeignKey(Filter, related_name='+')
 	previous_filter = models.ForeignKey(Filter, related_name='+', null=True) # No backwards relation!
 	chemistry = models.ManyToManyField(Chemistry, related_name='modules')
+	swap_interval = models.IntegerField(null=True)
 
 	class Meta:
 		app_label = 'filter_app'
