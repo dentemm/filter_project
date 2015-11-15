@@ -17,45 +17,43 @@
 						<h2 class="dashhead-title">Filter History</h2>
 					</div>
 				</div>
-				<div class="table-full">
-					<div class="table-responsive">
-						<table class="table" data-sort="table">
-							<thead>
-								<tr>
-									<th class="header">Date</th>
-									<th class="header">Tool</th>
-									<th class="header">Module</th>
-									<th class="header">Filter</th>
-									<th class="header">Comment</th>
-									<th class="header">Who?</th>
-								</tr>
-							</thead>
-							<tbody>
-								{% for swap in swap_list %}
-								<tr>
-									<td>
-										{{ swap.date }}
-									</td>
-									<td>
-										{{ swap.module.main_tool }}
-									</td>
-									<td>
-										{{ swap.module }}
-									</td>
-									<td>
-										{{ swap.swapped_filter }}
-									</td>
-									<td>
-										{{ swap.comment }}
-									</td>
-									<td>
-										{{ swap.who }}
-									</td>
-								</tr>
-								{% endfor %}
-							</tbody>
-						</table>
-					</div>
+				<div class="table-responsive">
+					<table class="table" data-sort="table">
+						<thead>
+							<tr>
+								<th class="header">Date</th>
+								<th class="header">Tool</th>
+								<th class="header">Module</th>
+								<th class="header">Filter</th>
+								<th class="header">Comment</th>
+								<th class="header">Who?</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for swap in swap_list %}
+							<tr>
+								<td>
+									{{ swap.date }}
+								</td>
+								<td>
+									{{ swap.module.main_tool }}
+								</td>
+								<td>
+									{{ swap.module }}
+								</td>
+								<td>
+									{{ swap.swapped_filter }}
+								</td>
+								<td>
+									{{ swap.comment }}
+								</td>
+								<td>
+									{{ swap.who }}
+								</td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</div>
