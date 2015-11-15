@@ -28,7 +28,8 @@ $("a.detail").click(function(e){
 	console.log($(this).data('pk'));
 
 	$.ajax({
-		type: "GET",
+		method: "GET",
+		dataType: "html",
 		url: "/filters/ajax/" + pk,
 		success: success_handler,
 		error: function(request, ajaxOptions, thrownError) {
@@ -38,6 +39,9 @@ $("a.detail").click(function(e){
 
 	function success_handler(data){
 		console.log(data);
+
+		//$("#tool-container").html(data);
+		$("body").html(data);
 	}
 
 });
