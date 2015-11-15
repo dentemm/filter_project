@@ -40,8 +40,6 @@
 						</ul>
 					</div>
 					<div class="col-sm-9 col-xs-8" id="tool-container">
-
-
 						<div class="dashhead m-t-md">
 						  	<div class="dashhead-titles">
 						    	<h3 class="dashhead-title">{{ modules.last.main_tool|upper }}</h3>
@@ -99,43 +97,4 @@
 	</script>
 {% endblock extra_js %}
 
-
-
-					<div class="col-sm-9 col-xs-8">
-						<div class="dashhead m-t-md">
-						  	<div class="dashhead-titles">
-						    	<h3 class="dashhead-title">{{ modules.last.main_tool|upper }}</h3>
-						  	</div>
-						</div>
-						<div class="table-responsive">
-							<table class="table" data-sort="table">
-								<thead>
-									<tr>
-										<th class="header">Module</th>
-										<th class="header">Current Filter</th>
-										<!--<th class="header">Previous Filter</th>-->
-										<th class="header">Last Change</th>
-									</tr>
-								</thead>
-								<tbody>
-									{% for module in modules %}
-									<tr>
-										<td>
-											<a>{{ module.name }}</a>
-										</td>
-										<td>
-											{{ module.current_filter }}
-										</td>
-										<!--<td>
-											{{  module.previous_filter }}
-										</td>-->
-										<td>
-											{{ module.swaps.last.date }}
-										</td>
-									</tr>
-									{% endfor %}
-								</tbody>
-							</table>
-						</div>
-					</div>
 

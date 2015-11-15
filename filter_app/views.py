@@ -221,7 +221,6 @@ class ModuleDetailView(DetailView):
 		ctx['swap_passed'] = current_days.days
 		ctx['swap_remaining'] = swap_time - current_days.days
 
-
 		return ctx
 
 

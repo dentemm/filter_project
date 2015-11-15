@@ -24,8 +24,8 @@ $("a.detail").click(function(e){
 
 	pk = $(this).data('pk');
 
-	console.log('application called');
-	console.log($(this).data('pk'));
+	// console.log('application called');
+	// console.log($(this).data('pk'));
 
 	$.ajax({
 		method: "GET",
@@ -38,7 +38,8 @@ $("a.detail").click(function(e){
 	});
 
 	function success_handler(data){
-		console.log(data);
+		
+		//console.log(data);
 
 		$("#tool-container").html(data);
 		//$("body").html(data);

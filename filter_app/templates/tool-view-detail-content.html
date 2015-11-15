@@ -7,8 +7,18 @@
   	</div>
 </div>
 <div class="row">
+	<div class="col-md-8">
+		<h4 class="m-b-xs">Current Filter</h4>
+		<p class="m-b-md">{{ module.current_filter }}</p>
+		<h4 class="m-b-xs">Previous Filter</h4>
+		<p class="m-b-md">{{ module.previous_filter }}</p>
+		<h4 class="m-b-xs">Last Filter Change</h4>
+		<p class="m-b-md">{{ module.swaps.last.date }}</p>
+		<h4 class="m-b-xs">Extra Info</h4>
+		<p class="m-b-md">{{ module.extra_info }}</p>
+	</div>
 	<div class="col-md-4">
-		<h5>Filter age</h5>
+		<h4>Filter age</h4>
 		<div class="m-x-auto">
 			<canvas
 				class="ex-graph"
