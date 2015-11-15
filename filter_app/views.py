@@ -218,8 +218,8 @@ class ModuleDetailView(DetailView):
 		swap_time = obj.swap_interval * 365
 		current_days = datetime.date.today() - last_swap
 
-		ctx['swap_passed'] = 1000 * (current_days.days / swap_time)
-		ctx['swap_remaining'] = 1000 * (swap_time - current_days.days) / swap_time
+		ctx['swap_passed'] = current_days.days
+		ctx['swap_remaining'] = swap_time - current_days.days
 
 
 		return ctx
