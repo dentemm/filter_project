@@ -1,4 +1,4 @@
-from django.views.generic import ListView, TemplateView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, TemplateView, CreateView, UpdateView, DeleteView, DetailView
 from django.core.urlresolvers import reverse_lazy
 
 from . import models
@@ -198,4 +198,12 @@ class ModulesForToolView(ListView):
 		#print list(self.model.objects.values_list('name', flat=True))
 
 		return self.model.objects.values_list('name', flat=True)
+
+
+'''Ajax handling views'''
+class ModuleDetailView(DetailView):
+
+	model = models.Module
+	template_name = 'tool-view-detail-content.html'
+
 

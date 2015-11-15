@@ -39,11 +39,9 @@
 						{% endfor %}
 						</ul>
 					</div>
+					<div class="col-sm-9 col-xs-8" id="tool-container">
 
 
-
-
-					<div class="col-sm-9 col-xs-8">
 						<div class="dashhead m-t-md">
 						  	<div class="dashhead-titles">
 						    	<h3 class="dashhead-title">{{ modules.last.main_tool|upper }}</h3>
@@ -63,7 +61,7 @@
 									{% for module in modules %}
 									<tr>
 										<td>
-											<a>{{ module.name }}</a>
+											<a class="detail" data-pk="{{ module.pk }}" href="{% url 'module-detail' module.pk %}">{{ module.name }} -- {{ module.pk }}</a>
 										</td>
 										<td>
 											{{ module.current_filter }}
@@ -79,10 +77,8 @@
 								</tbody>
 							</table>
 						</div>
+
 					</div>
-
-
-
 				</div>
 			</div>
 		</div>
@@ -93,6 +89,7 @@
 	{{ block.super }}
 	<script type="text/javascript" src="{% static 'js/tablesorter.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/chart.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/application.js' %}"></script>
 	<script>
 
 		//Table sorter API
