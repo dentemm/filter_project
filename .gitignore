@@ -55,7 +55,7 @@ coverage.xml
 project.db
 project.db
 *.sqlite3
-settings.py
+# settings.py
 
 
 # Sphinx documentation
