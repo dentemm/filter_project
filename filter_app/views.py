@@ -214,12 +214,14 @@ class ModuleDetailView(DetailView):
 
 		obj = ctx['object']
 
-		last_swap = obj.last_swap.date
-		swap_time = obj.swap_interval * 365
-		current_days = datetime.date.today() - last_swap
+		if obj.last_swap != None:
 
-		ctx['swap_passed'] = current_days.days
-		ctx['swap_remaining'] = swap_time - current_days.days
+			last_swap = obj.last_swap.date
+			swap_time = obj.swap_interval * 365
+			current_days = datetime.date.today() - last_swap
+
+			ctx['swap_passed'] = current_days.days
+			ctx['swap_remaining'] = swap_time - current_days.days
 
 		return ctx
 
