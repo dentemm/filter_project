@@ -1,3 +1,5 @@
+import datetime
+
 from django.views.generic import ListView, TemplateView, CreateView, UpdateView, DeleteView, DetailView
 from django.core.urlresolvers import reverse_lazy
 
@@ -205,5 +207,23 @@ class ModuleDetailView(DetailView):
 
 	model = models.Module
 	template_name = 'tool-view-detail-content.html'
+
+	def get_context_data(self, **kwargs):
+
+		ctx = super(ModuleDetailView, self).get_context_data(**kwargs)
+
+		obj = ctx['object']
+
+		last_swap = obj.last_swap.date
+		swap_time = obj.swap_interval * 365
+		current_days = datetime.date.today() - last_swap
+
+		ctx['swap_passed'] = 1000 * (current_days.days / swap_time)
+		ctx['swap_remaining'] = 1000 * (swap_time - current_days.days) / swap_time
+
+
+		return ctx
+
+
 
 

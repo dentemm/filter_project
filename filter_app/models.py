@@ -82,12 +82,22 @@ class Module(models.Model):
 	def __str__(self):
 		return self.main_tool.name + '-' +self.name
 
+	@property
+	def last_swap(self):
+
+		if self.swaps.count() > 0:
+
+			my_list = list(self.swaps.all())
+
+			return my_list[-1]
+
+		return None
+	
+
 class FilterSwap(models.Model):
 
 	#tool = models.ForeignKey(Tool, related_name='swaps')
 	module = models.ForeignKey(Module, related_name='swaps')
-	#module = models.ForeignKey(Module, related_name='+')
-	#jeej = models.OneToOneField(Module, related_name='neej')
 	swapped_filter = models.ForeignKey(Filter, related_name='swaps')
 	comment = models.TextField()
 	date = models.DateField('Date', default=datetime.date.today)
