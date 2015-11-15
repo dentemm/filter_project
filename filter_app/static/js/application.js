@@ -40,8 +40,8 @@ $("a.detail").click(function(e){
 	function success_handler(data){
 		console.log(data);
 
-		//$("#tool-container").html(data);
-		$("body").html(data);
+		$("#tool-container").html(data);
+		//$("body").html(data);
+		$.getScript("/static/js/toolkit.min.js");
 	}
-
 });

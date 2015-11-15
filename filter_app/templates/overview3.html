@@ -61,7 +61,7 @@
 									{% for module in modules %}
 									<tr>
 										<td>
-											<a class="detail" data-pk="{{ module.pk }}" href="{% url 'module-detail' module.pk %}">{{ module.name }} -- {{ module.pk }}</a>
+											<a class="detail" data-pk="{{ module.pk }}" href="{% url 'module-detail' module.pk %}">{{ module.name }}</a>
 										</td>
 										<td>
 											{{ module.current_filter }}
@@ -77,17 +77,6 @@
 								</tbody>
 							</table>
 						</div>
-
-						<div class="w-sm m-x-auto">
-							<canvas
-								class="ex-graph"
-								withd=150 height=150
-								data-chart="doughnut"
-								data-value="[{ value: 230, color: '#223322', label:'test' }, {value: 230, color: '#663366', label:'hmm' }]"
-								data-segmet-stroke-color="888888">
-							</canvas>
-						</div>
-
 					</div>
 				</div>
 			</div>
