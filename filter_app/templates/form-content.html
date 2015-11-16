@@ -7,7 +7,7 @@
 			<h5>Module</h5>
 		</div>
 		<div class="col-sm-9">
-			<select class="custom-select" id="id_module" name="module">
+			<select class="custom-select form-control" id="id_module" name="module">
 				<option>--Select--</option>
 				{% for x in form.module.field.queryset %}
 		 		<option>{{ x }}</option>
@@ -21,7 +21,7 @@
 			<h5>Filter</h5>
 		</div>
 		<div class="col-sm-9">
-			<select class="custom-select" id="id_swapped_filter" name="swapped_filter">
+			<select class="custom-select form-control" id="id_swapped_filter" name="swapped_filter">
 				<option>--Select--</option>
 				{% for x in form.swapped_filter.field.queryset %}
 			 	<option>{{ x }}</option>

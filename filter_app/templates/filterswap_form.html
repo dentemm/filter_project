@@ -41,22 +41,22 @@
 						<h6>Module</h6>
 					</div>
 					<div class="col-md-10">
-						<select class="custom-select">
+						<select class="custom-select form-control">
 							<option>--Select--</option>
-							{% for x in form.module.field.queryset %}
+						{% for x in form.module.field.queryset %}
 						 	<option>{{ x.name | upper }}</option>
-							{% endfor %}
+						{% endfor %}
 						</select>
 					</div>
 					<div class="col-md-2">
 						<h6>Filter</h6>
 					</div>
 					<div class="col-md-10">
-						<select class="custom-select">
+						<select class="custom-select form-control">
 							<option>--Select--</option>
-							{% for x in form.swapped_filter.field.queryset %}
+						{% for x in form.swapped_filter.field.queryset %}
 						 	<option>{{ x.product_code | title }}</option>
-							{% endfor %}
+						{% endfor %}
 						</select>
 					</div>
 					<div class="col-md-2">
