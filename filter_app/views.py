@@ -101,6 +101,8 @@ class FormHandler(CreateView):
 
 		print 'form invalid'
 
+		return super(FormHandler, self).form_invalid(form)
+
 	def get_form_kwargs(self):
 
 		print 'get form kwargs van form handler'
