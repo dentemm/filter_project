@@ -15,14 +15,76 @@ $("#first-select").change(function() {
 
 		//console.log(data)
 		$(".form-container").html(data);
+
+		//Need to call this, to re-evaluate application.js
+		$.getScript("/static/js/application.js");
+
 	}
 });
 
+/* Form submission for filter swap */
+$("#form-submit").click(function(e){
+
+	//e.preventDefault(); //DO NOT PREVENT DEFAULT!
+
+
+	var form = $("#swap-add");
+
+	//console.log(form); // sanity check
+
+	form.submit(function(){
+
+		console.log('test');
+
+		$.ajax({
+
+			data: form.serialize(),
+			type: form.attr('method'),
+			url: form.attr('action'),
+			success: success_handler,
+
+			error: function(request, ajaxOptions, thrownError) {
+				alert(request.responseText);
+			}
+
+		});
+		return false;
+
+		console.log('ready to submit form b');
+	});
+
+	function success_handler(data, status, response){
+
+		var response_success;
+
+		console.log(response.getResponseHeader('temm'));
+
+
+		if (response.getResponseHeader('temm') == 'fail') {
+
+			response_success = true;
+		}
+
+		else {
+			response_success = false
+		}
+		
+
+
+		console.log(response_success);
+		
+		//console.log('temm');
+		//console.log(data);
+	}
+});
+
+
+/* Links in Tool View to render detailed content */
 $("a.detail").click(function(e){
 
 	e.preventDefault();
 
-	pk = $(this).data('pk');
+	pk = $(this).data("pk");
 
 	// console.log('application called');
 	// console.log($(this).data('pk'));

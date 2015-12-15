@@ -68,6 +68,7 @@ class Module(models.Model):
 	main_tool = models.ForeignKey(Tool)
 	current_filter = models.ForeignKey(Filter, related_name='+')
 	previous_filter = models.ForeignKey(Filter, related_name='+', null=True) # No backwards relation!
+	recommended_filter = models.ForeignKey(Filter, related_name='+', null=True)
 	chemistry = models.ManyToManyField(Chemistry, related_name='modules')
 	swap_interval = models.IntegerField(null=True)
 	extra_info = models.TextField(null=True, blank=True)

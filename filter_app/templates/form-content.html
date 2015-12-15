@@ -1,6 +1,14 @@
 {% load widget_tweaks %}
 <hr>
-<form method="post" action="{% url 'form-handler' %}">
+{% if messages %}
+	<p class="danger">
+	{% for message in messages %}
+		{{ message }}
+	{% endfor %}
+	</p>
+{% endif %}
+
+<form id="swap-add" method="POST" action="{% url 'form-handler' %}">
 {% csrf_token %}
 	<div class="row m-b-xs">
 		<div class="col-sm-3">
@@ -62,8 +70,15 @@
 	<div class="row m-t-lg">
 		<div class="col-sm-8 col-sm-offset-0">
 			<a class="btn btn-lg btn-default-outline" type="button" href="{% url 'overview' %}">Go Back</a>
-			<input class="btn btn-lg btn-primary-outline" type="submit" value="Submit"/>
+			<input id="form-submit" class="btn btn-lg btn-primary-outline" type="submit" value="Submit"/>
 		</div>
 	</div>
+	{% if messages %}
+		<p>
+			{% for message in messages %}
+				{{ message }}
+			{% endfor %}
+		</p>
+	{% endif %}
 </form>
 

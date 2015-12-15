@@ -2,6 +2,8 @@ import datetime
 
 from django.views.generic import ListView, TemplateView, CreateView, UpdateView, DeleteView, DetailView
 from django.core.urlresolvers import reverse_lazy
+from django.http import JsonResponse, HttpResponseRedirect
+from django.contrib.messages.views import SuccessMessageMixin
 
 from . import models
 from . import forms
@@ -69,7 +71,7 @@ class ToolListSwapView(ListView):
 
 	def get_queryset(self):
 
-		print list(self.model.objects.values_list('name', flat=True))
+		#print list(self.model.objects.values_list('name', flat=True))
 
 		return self.model.objects.values_list('name', flat=True)
 
@@ -77,35 +79,45 @@ class ModulesForToolSwapView(ListView):
 
 	pass
 
-class FormHandler(CreateView):
-
-	template_name = 'form-content.html'
-	success_url = reverse_lazy('overview')
+class FormHandler(SuccessMessageMixin, CreateView):
 
 	form_class = forms.SwapForm
-	#form_class = forms.TestForm
-
-
+	template_name = 'form-content.html'
+	success_url = reverse_lazy('overview')
+	success_message = 'Successfully added filter swap!'
+	
+	'''
 	def clean(self):
 
 		print 'clean'
+	'''
 
 	def form_valid(self, form):
 
 		print 'form valid'
 		print form
 
-		return super(FormHandler, self).form_valid(form)
+		response = super(FormHandler, self).form_valid(form)
+
+		response['temm'] = 'great'
+
+		return response
 
 	def form_invalid(self, form):
 
 		print 'form invalid'
 
-		return super(FormHandler, self).form_invalid(form)
+		print form
+
+		response = super(FormHandler, self).form_invalid(form)
+
+		response['temm'] = 'fail'
+
+		return response
 
 	def get_form_kwargs(self):
 
-		print 'get form kwargs van form handler'
+		#print 'get form kwargs van form handler'
 
 		kwargs = super(FormHandler, self).get_form_kwargs()
 
@@ -167,10 +179,6 @@ class SwapUpdateView(UpdateView):
 	#form_class = forms.TestForm
 	
 
-	def post(self, request, *args, **kwargs):
-
-		print 'in post methode geraakt'
-
 class SwapDeleteView(DeleteView):
 
 	template_name = 'filterswap_form.html'
@@ -182,9 +190,6 @@ class SwapDeleteView(DeleteView):
 	form_class = forms.SwapForm
 	#form_class = forms.TestForm
 
-	def post(self, request, *args, **kwargs):
-
-		print 'in post methode geraakt'
 
 class HomeView(TemplateView):
 
@@ -199,7 +204,6 @@ class ModulesForToolView(ListView):
 
 	def get_queryset(self):
 
-		#print list(self.model.objects.values_list('name', flat=True))
 
 		return self.model.objects.values_list('name', flat=True)
 
