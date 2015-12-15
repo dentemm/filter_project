@@ -63,6 +63,9 @@ class Tool(models.Model):
 
 
 class Module(models.Model):
+	'''
+	Module for MES tool
+	'''
 
 	name = models.CharField(max_length=32, unique=True)
 	main_tool = models.ForeignKey(Tool)
