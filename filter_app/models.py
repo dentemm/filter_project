@@ -69,7 +69,7 @@ class Module(models.Model):
 	Module for MES tool
 	'''
 
-	name = models.CharField(max_length=32, unique=True)
+	name = models.CharField(max_length=32, unique=False)
 	main_tool = models.ForeignKey(Tool)
 	current_filter = models.ForeignKey(Filter, related_name='+', blank=True, null=True)
 	previous_filter = models.ForeignKey(Filter, related_name='+', blank=True, null=True) # No backwards relation!
@@ -83,6 +83,7 @@ class Module(models.Model):
 		verbose_name = 'module'
 		verbose_name_plural = 'modules'
 		ordering = ['name',]
+		unique_together = ('name', 'main_tool')
 
 	def __unicode__(self):
 		return self.name
