@@ -13,6 +13,7 @@ class Filter(models.Model):
 		app_label = 'filter_app'
 		verbose_name = 'filter'
 		verbose_name_plural = 'filters'
+		ordering = ['manufacturer', 'product_code',]
 
 	def __unicode__(self):
 		return self.product_code
@@ -29,6 +30,7 @@ class Chemistry(models.Model):
 		app_label = 'filter_app'
 		verbose_name = 'chemistry'
 		verbose_name_plural = 'chemicals'
+		ordering = ['name',]
 
 	def __unicode__(self):
 		return str(self.name) + ' ' + str(self.concentration)
@@ -80,6 +82,7 @@ class Module(models.Model):
 		app_label = 'filter_app'
 		verbose_name = 'module'
 		verbose_name_plural = 'modules'
+		ordering = ['name',]
 
 	def __unicode__(self):
 		return self.name
