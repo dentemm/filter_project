@@ -82,7 +82,7 @@ class Module(models.Model):
 		app_label = 'filter_app'
 		verbose_name = 'module'
 		verbose_name_plural = 'modules'
-		ordering = ['name',]
+		ordering = ['main_tool', 'name',]
 		unique_together = ('name', 'main_tool')
 
 	def __unicode__(self):
