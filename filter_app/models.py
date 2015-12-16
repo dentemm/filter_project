@@ -49,7 +49,7 @@ class Tool(models.Model):
 	)
 
 	name = models.CharField(max_length=16, unique=True)
-	slug = models.CharField(max_length=16, unique=True, null=True)
+	slug = models.CharField(max_length=16, unique=False, blank=False, default='tja')
 	cleanroom = models.CharField(max_length=16, choices=CR_CHOICES, default='FAB1', null=True)
 
 	class Meta:
