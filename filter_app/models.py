@@ -48,7 +48,8 @@ class Tool(models.Model):
 	    ('FAB2', 'FAB2'),
 	)
 
-	name = models.CharField(max_length=8, unique=True)
+	name = models.CharField(max_length=16, unique=True)
+	slug = models.CharField(max_length=16, unique=True, null=True)
 	cleanroom = models.CharField(max_length=16, choices=CR_CHOICES, default='FAB1', null=True)
 
 	class Meta:
@@ -62,6 +63,7 @@ class Tool(models.Model):
 
 	def __str__(self):
 		return self.name
+
 
 
 class Module(models.Model):
