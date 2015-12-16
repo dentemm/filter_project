@@ -5,7 +5,7 @@ from . import models
 
 @admin.register(models.Tool)
 class ToolAdmin(admin.ModelAdmin):
-	exclude ['slug', ]
+	exclude = ['slug', ]
 	#pass
 
 @admin.register(models.Module)
