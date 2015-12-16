@@ -5,8 +5,8 @@ from . import models
 
 @admin.register(models.Tool)
 class ToolAdmin(admin.ModelAdmin):
-	#exclude ['slug', ]
-	pass
+	exclude ['slug', ]
+	#pass
 
 @admin.register(models.Module)
 class ModuleAdmin(admin.ModelAdmin):
