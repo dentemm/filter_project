@@ -77,7 +77,7 @@ class Module(models.Model):
 	previous_filter = models.ForeignKey(Filter, related_name='+', blank=True, null=True) # No backwards relation!
 	recommended_filter = models.ForeignKey(Filter, related_name='+', blank=True, null=True)
 	chemistry = models.ManyToManyField(Chemistry, related_name='modules')
-	swap_interval = models.IntegerField(null=True, default=3)
+	swap_interval = models.IntegerField('Swap interval (# months)', null=True, default=24)
 	extra_info = models.TextField(null=True, blank=True)
 
 	class Meta:

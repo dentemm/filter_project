@@ -223,7 +223,7 @@ class ModuleDetailView(DetailView):
 		if obj.last_swap != None:
 
 			last_swap = obj.last_swap.date
-			swap_time = obj.swap_interval * 365
+			swap_time = obj.swap_interval * 30
 			current_days = datetime.date.today() - last_swap
 
 			ctx['swap_passed'] = current_days.days
