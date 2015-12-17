@@ -226,9 +226,16 @@ class ModuleDetailView(DetailView):
 			swap_time = obj.swap_interval * 30
 			current_days = datetime.date.today() - last_swap
 
-			ctx['swap_passed'] = current_days.days
-			ctx['swap_remaining'] = swap_time - current_days.days
+			if swap_time - current_days.days < 0:
+				ctx['overdue'] = current_days.days - swap_time
+				ctx['swap_remaining'] = 0
 
+			else:
+				ctx['swap_remaining'] = swap_time - current_days.days
+				ctx['overdue'] = 0
+
+			ctx['swap_passed'] = current_days.days
+			
 		return ctx
 
 
