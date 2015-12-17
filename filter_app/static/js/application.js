@@ -34,7 +34,7 @@ $("#form-submit").click(function(e){
 
 	form.submit(function(){
 
-		console.log('test');
+		console.log('going to submit');
 
 		$.ajax({
 
@@ -44,11 +44,12 @@ $("#form-submit").click(function(e){
 			success: success_handler,
 
 			error: function(request, ajaxOptions, thrownError) {
+				alert('error!');
 				alert(request.responseText);
 			}
 
 		});
-		return false;
+		//return false;
 
 		console.log('ready to submit form b');
 	});
@@ -57,6 +58,8 @@ $("#form-submit").click(function(e){
 
 		var response_success;
 
+
+		console.log('success!')
 		console.log(response.getResponseHeader('temm'));
 
 

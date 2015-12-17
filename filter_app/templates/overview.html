@@ -9,6 +9,13 @@
 
 {% block content %}
 	<div class="container">
+		{% if messages %}
+			<p class="danger">
+				{% for message in messages %}
+					{{ message }}
+				{% endfor %}
+			</p>
+{% endif %}
 		<div class="row">
 			<div class="col-sm-9 col-xs-12 content">
 				<div class="dashhead">
