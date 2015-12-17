@@ -50,3 +50,52 @@ table {
 	margin-top: 5px !important;
 	margin-bottom: 5px !important;
 }
+
+.p-a-sm {
+	padding: 10px !important; 
+}
+.p-t-sm { 
+	padding-top: 10px !important;
+}
+.p-r-sm { 
+	padding-right: 10px !important;
+}
+.p-b-sm {
+	padding-bottom: 10px !important;
+}
+.p-l-sm {
+	padding-left: 10px !important;
+}
+.p-x-sm {
+	padding-right: 10px !important;
+	padding-left:  10px !important;
+}
+.p-y-sm { 
+	padding-top: 10px !important;
+	padding-bottom: 10px !important;
+}
+
+.p-a-xs { 
+	padding: 5px !important;
+}
+.p-t-xs {
+	padding-top: 5px !important;
+}
+.p-r-xs {
+	padding-right:  5px !important;
+}
+.p-b-xs {
+	padding-bottom: 5px !important;
+}
+.p-l-xs {
+	padding-left: 5px !important;
+}
+.p-x-xs { 
+	padding-right: 5px !important;
+	padding-left: 5px !important;
+}
+.p-y-xs { 
+	padding-top: 5px !important;
+	padding-bottom: 5px !important;
+}
+

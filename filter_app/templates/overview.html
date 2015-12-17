@@ -9,15 +9,17 @@
 
 {% block content %}
 	<div class="container">
-		{% if messages %}
-			<p class="danger">
-				{% for message in messages %}
-					{{ message }}
-				{% endfor %}
-			</p>
-{% endif %}
 		<div class="row">
 			<div class="col-sm-9 col-xs-12 content">
+			{% if messages %}
+				<div class="statcard statcard-success p-a-sm m-b-md">
+					<span class="statcard-desc">
+					{% for message in messages %}
+						{{ message }}
+					{% endfor %}
+					</span>
+				</div>
+			{% endif %}
 				<div class="dashhead">
 					<div class="dashhead-titles">
 						<h6 class="dashhead-subtitle">Filter Views</h6>
