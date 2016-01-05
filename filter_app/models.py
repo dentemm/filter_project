@@ -8,6 +8,7 @@ class Filter(models.Model):
 	product_code = models.CharField(max_length=255, unique=True)
 	manufacturer = models.CharField(max_length=255)
 	pore_size = models.CharField(max_length=32)
+	is_stock_article = models.BooleanField(default=False)
 
 	class Meta:
 		app_label = 'filter_app'
