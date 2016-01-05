@@ -79,6 +79,7 @@ class Module(models.Model):
 	chemistry = models.ManyToManyField(Chemistry, related_name='modules')
 	swap_interval = models.IntegerField('Swap interval (# months)', null=True, default=24)
 	extra_info = models.TextField(null=True, blank=True)
+	number_of_filters = models.PositiveIntegerField('Number of filters', default=1)
 
 	class Meta:
 		app_label = 'filter_app'
