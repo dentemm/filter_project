@@ -47,7 +47,7 @@
 									{{ module.name }}
 								</td>
 								<td>
-									<p class="text-danger">
+									<p class="{% if not module.current_filter.is_stock_article %}text-danger{% else %}text-success{% endif %}">
 										{{  module.current_filter.product_code }}
 									</p>
 								</td>
