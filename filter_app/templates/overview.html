@@ -47,7 +47,9 @@
 									{{ module.name }}
 								</td>
 								<td>
-									{{  module.current_filter.product_code }}
+									<p class="text-danger">
+										{{  module.current_filter.product_code }}
+									</p>
 								</td>
 								<td>
 									{% for chem in module.chemistry.all %}
