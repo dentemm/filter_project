@@ -110,7 +110,7 @@ class FilterSwap(models.Model):
 	#tool = models.ForeignKey(Tool, related_name='swaps')
 	module = models.ForeignKey(Module, related_name='swaps')
 	swapped_filter = models.ForeignKey(Filter, related_name='swaps')
-	comment = models.TextField()
+	comment = models.TextField(null=True, blank=True)
 	date = models.DateField('Date', default=datetime.date.today)
 	who = models.CharField(max_length=32, null=True)
 
