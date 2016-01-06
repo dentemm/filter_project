@@ -62,7 +62,7 @@
 											<a class="detail" data-pk="{{ module.pk }}" href="{% url 'module-detail' module.pk %}">{{ module.name }}</a>
 										</td>
 										<td>
-											{{ module.current_filter }}
+											<p class="{% if not module.current_filter.is_stock_article %}text-danger{% else %}text-success{% endif %}">{{ module.current_filter }}</p>
 										</td>
 										<td>
 											{{  module.number_of_filters }}
