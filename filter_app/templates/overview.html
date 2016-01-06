@@ -33,8 +33,8 @@
 								<th class="header">Tool</th>
 								<th class="header">Module</th>
 								<th class="header">Current Filter</th>
-								<th class="header">Description</th>
-								<th class="header">Date</th>
+								<!--<th class="header">Description</th>-->
+								<th class="header">Last change</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -51,11 +51,11 @@
 										{{  module.current_filter.product_code }}
 									</p>
 								</td>
-								<td>
+								<!--<td>
 									{% for chem in module.chemistry.all %}
 										{{ chem }}
 									{% endfor %}
-								</td>
+								</td>-->
 								<td>
 									{{ module.swaps.last.date }}
 								</td>
