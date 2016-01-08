@@ -9,12 +9,20 @@ class SwapForm(ModelForm):
 
 		super(SwapForm, self).__init__(*args, **kwargs)
 
+		print 'formswap init'
+
+		print tool
+
 		
 		if tool != '':
 			self.fields['module'] = ModelChoiceField(queryset=Module.objects.filter(main_tool__name__iexact=tool), to_field_name='name')
 
+			print 'tool!'
+
 		else:
 			self.fields['module'] = ModelChoiceField(queryset=Module.objects.all(), to_field_name='name')
+
+			print 'no tool!'
 
 		self.fields['swapped_filter'] = ModelChoiceField(queryset=Filter.objects.all(), to_field_name='product_code')
 

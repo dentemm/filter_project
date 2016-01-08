@@ -25,10 +25,25 @@ $("#first-select").change(function() {
 /* Form submission for filter swap */
 $("#form-submit").click(function(e){
 
-	//e.preventDefault(); //DO NOT PREVENT DEFAULT!
+	e.preventDefault(); //DO NOT PREVENT DEFAULT!
 
 
 	var form = $("#swap-add");
+
+	kwargs = form.serialize() + '&tool=' + $('#first-select').val()
+
+	console.log('kwargs!');
+	console.log(kwargs);
+
+	/*kwargs = form.serialize();
+	kwargs.push({
+		key: 'tool',
+		value: $('#first-select').val()
+	});  
+
+	console.log('kwargs!');
+	console.log(kwargs);
+	console.log(kwargs.tool);*/
 
 	//console.log(form); // sanity check
 
@@ -36,9 +51,11 @@ $("#form-submit").click(function(e){
 
 		console.log('going to submit');
 
+
+
 		$.ajax({
 
-			data: form.serialize(),
+			data: form.serialize() + '&tool=' + $('#first-select').val(),
 			type: form.attr('method'),
 			url: form.attr('action'),
 			success: success_handler,

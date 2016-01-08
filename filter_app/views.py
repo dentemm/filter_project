@@ -123,6 +123,9 @@ class FormHandler(SuccessMessageMixin, CreateView):
 
 		kwargs['tool'] = self.request.GET.get('tool', '')
 
+		print 'get form kwargs'
+		print kwargs['tool']
+
 		#print 'model form tool: ' + str(kwargs['tool'])
 
 		return kwargs
