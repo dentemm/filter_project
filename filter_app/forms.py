@@ -26,6 +26,8 @@ class SwapForm(ModelForm):
 
 		self.fields['swapped_filter'] = ModelChoiceField(queryset=Filter.objects.all(), to_field_name='product_code')
 
+		
+
 
 	class Meta:
 		model = FilterSwap

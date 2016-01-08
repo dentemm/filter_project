@@ -92,6 +92,18 @@ class FormHandler(SuccessMessageMixin, CreateView):
 		print 'clean'
 	'''
 
+	def get(self, request, *args, **kwargs):
+
+		print 'get'
+		return super(FormHandler, self).get(request, *args, **kwargs)
+
+	def post(self, request, *args, **kwargs):
+
+		print 'post'
+		print self.request.POST.get('tool', '')
+		print self.request.GET.get('tool', '')
+		return super(FormHandler, self).post(request, *args, **kwargs)
+
 	def form_valid(self, form):
 
 		print 'form valid'
@@ -123,12 +135,25 @@ class FormHandler(SuccessMessageMixin, CreateView):
 
 		kwargs['tool'] = self.request.GET.get('tool', '')
 
+
+
 		print 'get form kwargs'
 		print kwargs['tool']
+		#print 'referer: ' + self.request.META.get('HTTP_REFERER', None)
 
 		#print 'model form tool: ' + str(kwargs['tool'])
 
 		return kwargs
+
+	'''def get_context_data(self, **kwargs):
+
+		print 'get context data'
+
+		ctx = super(FormHandler, self).get_context_data(**kwargs)
+
+		ctx['tool'] = self.request.GET.get('tool', 'chinees')
+
+		return ctx'''
 
 
 class SwapCreateView(CreateView):

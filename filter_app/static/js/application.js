@@ -30,20 +30,11 @@ $("#form-submit").click(function(e){
 
 	var form = $("#swap-add");
 
-	kwargs = form.serialize() + '&tool=' + $('#first-select').val()
+	//kwargs = form.serialize() + '&tool=' + $('#first-select').val();
 
-	console.log('kwargs!');
-	console.log(kwargs);
+	//console.log('kwargs!');
+	//console.log(kwargs);
 
-	/*kwargs = form.serialize();
-	kwargs.push({
-		key: 'tool',
-		value: $('#first-select').val()
-	});  
-
-	console.log('kwargs!');
-	console.log(kwargs);
-	console.log(kwargs.tool);*/
 
 	//console.log(form); // sanity check
 
@@ -51,11 +42,12 @@ $("#form-submit").click(function(e){
 
 		console.log('going to submit');
 
+		console.log($('#first-select').val());
 
 
 		$.ajax({
 
-			data: form.serialize() + '&tool=' + $('#first-select').val(),
+			data: form.serialize(),
 			type: form.attr('method'),
 			url: form.attr('action'),
 			success: success_handler,
