@@ -27,6 +27,8 @@ $("#form-submit").click(function(e){
 
 	//e.preventDefault(); //DO NOT PREVENT DEFAULT!
 
+	console.log('submit form now');
+
 
 	var form = $("#swap-add");
 
