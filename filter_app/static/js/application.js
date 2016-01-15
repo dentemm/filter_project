@@ -13,7 +13,7 @@ $("#first-select").change(function() {
 
 	function success_handler(data){
 
-		console.log(data)
+		//console.log(data)
 		$(".form-container").html(data);
 
 		//Need to call this, to re-evaluate application.js
@@ -55,6 +55,7 @@ $("#form-submit").click(function(e){
 			error: function(request, ajaxOptions, thrownError) {
 				alert('error!');
 				alert(request.responseText);
+				console.log(request.responseText);
 			}
 
 		});
