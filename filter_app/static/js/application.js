@@ -25,7 +25,7 @@ $("#first-select").change(function() {
 /* Form submission for filter swap */
 $("#form-submit").click(function(e){
 
-	e.preventDefault(); //DO NOT PREVENT DEFAULT!
+	//e.preventDefault(); //DO NOT PREVENT DEFAULT!
 
 
 	var form = $("#swap-add");
