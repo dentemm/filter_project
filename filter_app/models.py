@@ -139,6 +139,7 @@ class FilterSwap(models.Model):
 			print 'filter swapped!'
 			print self.module.previous_filter
 
+
 		#elif not active_filter:
 
 		print 'stel nieuwe filter in!'

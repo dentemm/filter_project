@@ -23,7 +23,7 @@ $("#first-select").change(function() {
 });
 
 /* Form submission for filter swap */
-$("#form-submit").click(function(e){
+$("#form-submit").submit(function(e){
 
 	//e.preventDefault(); //DO NOT PREVENT DEFAULT!
 
