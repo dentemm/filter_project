@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load staticfiles widget_tweaks %}
 
 <div class="dashhead m-t-md">
   	<div class="dashhead-titles">
@@ -36,4 +36,21 @@
 		{% endif %}
 	</div>
 </div>
-<a class="btn btn-lg btn-primary-outline" type="button" href="{{request.META.HTTP_REFERER}}">Go Back</a>
+<div class="container">
+	<div class="row">
+		<!--<form id="swap-add" method="POST" action="{% url 'form-handler' %}">-->
+		<form id="swap-add" method="POST" action="/filters/formtest/?tool={{ module.main_tool }}">
+			<div class="hidden">
+			{% csrf_token %}
+				<input id="id_module" name="module" value="{{ module }}" />
+				<input id="id_swapped_filter" name="swapped_filter" value="{{ module.current_filter }}"/>
+				<input id="id_comment" name="comment" value="Default PM"/>
+				<input id="id_date" name="date" value="2015-04-04"/>
+				<input id="id_who" name="who" value="XXX"/>
+
+			</div>
+			<a class="btn btn-lg btn-primary-outline" type="button" href="{{request.META.HTTP_REFERER}}">Go Back</a>
+			<input id="form-submit" class="btn btn-lg btn-primary-outline" type="submit" value="Change me"/>
+		</form>
+	</div>
+</div>
