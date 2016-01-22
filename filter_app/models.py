@@ -14,7 +14,7 @@ class Filter(models.Model):
 		app_label = 'filter_app'
 		verbose_name = 'filter'
 		verbose_name_plural = 'filters'
-		ordering = ['manufacturer', 'product_code',]
+		ordering = ['product_code',]
 
 	def __unicode__(self):
 		return self.product_code
@@ -98,7 +98,7 @@ class Module(models.Model):
 	@property
 	def last_swap(self):
 
-		if self.swaps.count() > 0:
+		if self.swaps.count() > 1:
 
 			my_list = list(self.swaps.all())
 

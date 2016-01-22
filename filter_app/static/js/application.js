@@ -25,7 +25,7 @@ $("#first-select").change(function() {
 /* Form submission for filter swap */
 $("#form-submit").submit(function(e){
 
-	//e.preventDefault(); //DO NOT PREVENT DEFAULT!
+	e.preventDefault(); //DO NOT PREVENT DEFAULT!
 
 	console.log('submit form now');
 
@@ -68,25 +68,25 @@ $("#form-submit").submit(function(e){
 
 	function success_handler(data, status, response){
 
-		var response_success;
+		//var response_success;
 
 
-		console.log('success!')
-		console.log(response.getResponseHeader('temm'));
+		//console.log('success!')
+		//console.log(response.getResponseHeader('temm'));
 
 
-		if (response.getResponseHeader('temm') == 'fail') {
+		/*if (response.getResponseHeader('temm') == 'fail') {
 
 			response_success = true;
 		}
 
 		else {
 			response_success = false
-		}
+		}*/
 		
 
 
-		console.log(response_success);
+		//console.log(response_success);
 		
 		//console.log('temm');
 		//console.log(data);
