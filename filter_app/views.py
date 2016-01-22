@@ -142,7 +142,7 @@ class FormHandler(SuccessMessageMixin, CreateView):
 		else: 
 			self.request.session['tool'] = tool
 		
-		print 'tool= ' + tool
+		#print 'tool= ' + tool
 
 		kwargs['tool'] = tool
 
