@@ -100,9 +100,10 @@ class Module(models.Model):
 
 		if self.swaps.count() > 1:
 
-			my_list = list(self.swaps.all())
+			#my_list = list(self.swaps.all())
+			return self.swaps.all().reverse()[0]
 
-			return my_list[-1]
+			#return my_list[-1]
 
 		return None
 	
