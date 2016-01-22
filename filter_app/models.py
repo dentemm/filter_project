@@ -87,7 +87,7 @@ class Module(models.Model):
 		verbose_name = 'module'
 		verbose_name_plural = 'modules'
 		ordering = ['main_tool', 'name',]
-		unique_together = ('name', 'main_tool')
+		unique_together = ('name', 'main_tool', )
 
 	def __unicode__(self):
 		return self.name
@@ -101,7 +101,13 @@ class Module(models.Model):
 		if self.swaps.count() > 1:
 
 			#my_list = list(self.swaps.all())
-			return self.swaps[-1]
+			#return self.swaps[-1]
+
+			last = self.swaps.all()[0]
+
+			print "hier: " + str(last.date)
+
+			return last
 
 			#return my_list[-1]
 
