@@ -22,6 +22,17 @@ $("#first-select").change(function() {
 	}
 });
 
+$("#id_date").datepicker()
+
+	.on('changeDate', function(e) {
+
+		console.log("date changed!!!");
+		console.log($(this).val());
+
+		$('#id_date').val() = $(this).val();
+
+	});
+
 /* Form submission for filter swap */
 $("#form-submit").submit(function(e){
 
