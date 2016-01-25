@@ -22,7 +22,7 @@ $("#first-select").change(function() {
 	}
 });
 
-$("#id_date").datepicker()
+/*$("#id_date").datepicker()
 
 	.on('changeDate', function(e) {
 
@@ -31,7 +31,7 @@ $("#id_date").datepicker()
 
 		$('#id_date').val() = $(this).val();
 
-	});
+	});*/
 
 /* Form submission for filter swap */
 $("#form-submit").submit(function(e){

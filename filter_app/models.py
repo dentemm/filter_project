@@ -98,7 +98,7 @@ class Module(models.Model):
 	@property
 	def last_swap(self):
 
-		if self.swaps.count() > 1:
+		if self.swaps.count() > 0:
 
 			#my_list = list(self.swaps.all())
 			#return self.swaps[-1]
