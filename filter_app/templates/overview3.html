@@ -32,8 +32,8 @@
 						<ul class="nav nav-bordered nav-stacked">
 							<li class="nav-header">Tools</li>
 							{% for tool in tool_list %}
-							<li {% if tool.name|lower == current_tool %}class="active"{% endif %}>
-								<a href="{% url 'test' fab=tool.cleanroom|lower tool=tool.name|lower %}">{{ tool.name|upper }}</a>
+							<li class="{% if tool.name|lower == current_tool %}active{% endif %}">
+								<a href="{% url 'test' fab=tool.cleanroom|lower tool=tool.name|lower %}">{{ tool.name|upper }}<!--<span class="tool-list"> *</span>--></a>
 								<!--<a href="{% url 'modules-for-tool' tool %}">{{ tool.name|upper }}</a>-->
 							</li>
 						{% endfor %}

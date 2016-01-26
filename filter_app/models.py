@@ -112,6 +112,19 @@ class Module(models.Model):
 			#return my_list[-1]
 
 		return None
+
+	@property
+	def time_to_next_swap(self):
+
+		last = self.last_swap.date
+		interval = self.swap_interval * 30
+
+		days_since = datetime.date.today() - last
+
+		time_to_next_swap = interval - days_since
+
+		return time_to_next_swap
+
 	
 
 class FilterSwap(models.Model):

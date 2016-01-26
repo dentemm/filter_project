@@ -3,6 +3,13 @@ table {
 	font-weight: 300;
 }
 
+a span.tool-list {
+	color: #e64759;
+	/*color: hotpink;*/
+	
+
+}
+
 /*Addition: extra margins and padding classes */
 .m-a-sm {
 	margin: 10px !important;
