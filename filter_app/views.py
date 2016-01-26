@@ -18,7 +18,7 @@ class OverviewPage(ListView):
 
 	def get_queryset(self):
 
-		return self.model.objects.all().prefetch_related()
+		return self.model.objects.all()
 
 class HistoryView(ListView):
 
@@ -28,7 +28,7 @@ class HistoryView(ListView):
 
 	def get_queryset(self):
 
-		return self.model.objects.all().prefetch_related()
+		return self.model.objects.all()
 
 class ToolView(ListView):
 
@@ -38,7 +38,7 @@ class ToolView(ListView):
 
 	def get_context_data(self, **kwargs):
 
-		modules = models.Module.objects.filter(main_tool__name__iexact=self.tool).prefetch_related()
+		modules = models.Module.objects.filter(main_tool__name__iexact=self.tool)
 
 		ctx = super(ToolView, self).get_context_data(**kwargs)
 
@@ -61,7 +61,7 @@ class ToolView(ListView):
 		else:
 			self.tool = self.kwargs['tool']
 
-		return self.model.objects.filter(cleanroom__iexact=self.fab).prefetch_related()
+		return self.model.objects.filter(cleanroom__iexact=self.fab)
 
 class ToolListSwapView(ListView):
 
