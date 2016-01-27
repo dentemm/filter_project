@@ -45,6 +45,7 @@ INSTALLED_APPS = (
 
     # additional third party apps 
     'widget_tweaks',
+    'braces',
 
     # custom apps
     'filter_app',

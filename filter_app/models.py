@@ -116,14 +116,20 @@ class Module(models.Model):
 	@property
 	def time_to_next_swap(self):
 
-		last = self.last_swap.date
+		print 'time to next swap!!!'
+
+		last_change = self.last_swap.date
 		interval = self.swap_interval * 30
 
-		days_since = datetime.date.today() - last
+		next_change = last_change + datetime.timedelta(interval)
 
-		time_to_next_swap = interval - days_since
 
-		return time_to_next_swap
+		time_to_next_swap = next_change - datetime.date.today()
+
+		print "time_to_next_swap "
+		print time_to_next_swap.days
+
+		return time_to_next_swap.days
 
 	
 
