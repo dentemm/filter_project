@@ -47,9 +47,9 @@
 									{{ module.name }}
 								</td>
 								<td>
-									<p class="{% if not module.current_filter.is_stock_article %}text-danger{% else %}text-success{% endif %}">
+									<a class="{% if not module.current_filter.is_stock_article %}text-danger{% else %}text-success{% endif %}" href="{% url 'filter-detail' module.current_filter.pk %}">
 										{{  module.current_filter.product_code }}
-									</p>
+									</a>
 								</td>
 								<!--<td>
 									{% for chem in module.chemistry.all %}

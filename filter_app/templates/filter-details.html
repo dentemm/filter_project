@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+
+{% load staticfiles %}
+
+{% block extra_css %}
+	{{ block.super }}
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-9 col-xs-12 content">
+			{% if messages %}
+				<div class="statcard statcard-success p-a-sm m-b-md">
+					<span class="statcard-desc">
+					{% for message in messages %}
+						{{ message }}
+					{% endfor %}
+					</span>
+				</div>
+			{% endif %}
+				<div class="dashhead">
+					<div class="dashhead-titles">
+						<h6 class="dashhead-subtitle">Filter Views</h6>
+						<h2 class="dashhead-title">Filter Overview</h2>
+					</div>
+				</div>
+				<h4 class="m-t-md m-b-sm">Filter:  {{ filter.product_code|upper }} </h4>
+				<div class="hr-divider m-b-md"></div>
+				<h4 class="m-b-xs m-t-xs">Manufacturer</h4>
+				<p class="m-b-md">{{ filter.manufacturer }}</p>
+				<h4 class="m-b-xs">Pore Size</h4>
+				<p class="m-b-md">{{ filter.pore_size }}</p>
+				<h4 class="m-b-xs">Additional information</h4>
+				<p class="m-b-md">{{ filter.extra_info }}</p>
+				<a class="btn btn-lg btn-primary-outline" type="button" href="{{request.META.HTTP_REFERER}}">Go Back</a>
+			</div>
+		</div>
+	</div>
+{% endblock content %}
+
+

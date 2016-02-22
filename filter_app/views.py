@@ -75,6 +75,12 @@ class ToolListSwapView(ListView):
 
 		return self.model.objects.values_list('name', flat=True)
 
+class FilterDetailView(DetailView):
+
+	model = models.Filter
+	template_name = 'filter-details.html'
+	context_object_name = 'filter'
+
 class ModulesForToolSwapView(ListView):
 
 	pass
@@ -258,7 +264,3 @@ class ModuleDetailView(DetailView):
 			ctx['swap_passed'] = current_days.days
 			
 		return ctx
-
-
-
-

@@ -10,6 +10,8 @@ urlpatterns = [
 	url(r'^new/$', views.SwapCreateView.as_view(), name='new-swap'),
 	url(r'^formtest/$', views.FormHandler.as_view(), name='form-handler'),
 
+	url(r'^filter/(?P<pk>[\w-]+)/$', views.FilterDetailView.as_view(), name='filter-detail'),
+
 	url(r'^new/test/$', views.ToolListSwapView.as_view(), name='test'),
 
 	url(r'^latest/(?P<tool>[\w-]+)/$', views.ModulesForToolView.as_view(), name='modules-for-tool'),
