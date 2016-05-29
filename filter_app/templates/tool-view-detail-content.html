@@ -12,7 +12,6 @@
 		<h4 class="m-b-xs">Previous Filter</h4>
 		<p class="m-b-md">{{ module.previous_filter }}</p>
 		<h4 class="m-b-xs">Last Filter Change</h4>
-		<!--<p class="m-b-md">{{ module.swaps.last.date }}</p>-->
 		<p class="m-b-md">{{ module.last_swap.date }}</p>
 		<h4 class="m-b-xs">Extra Info</h4>
 		<p class="m-b-md">{{ module.extra_info }}</p>
@@ -48,8 +47,8 @@
 				<input id="id_module" name="module" value="{{ module }}" />
 				<input id="id_swapped_filter" name="swapped_filter" value="{{ module.current_filter }}"/>
 				<input id="id_comment" name="comment" value="Default PM"/>
-				<input id="id_date" name="date" value="2015-04-04"/>
-				<input id="id_who" name="who" value="XXX"/>
+				<input id="id_date" name="date" value="4444-04-04"/>
+				<input id="id_who" name="who" value="Tool responsible"/>
 
 			</div>
 			<a class="btn btn-lg btn-primary-outline" type="button" href="{{request.META.HTTP_REFERER}}">Go Back</a>

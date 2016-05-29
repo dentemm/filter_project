@@ -22,19 +22,9 @@ $("#first-select").change(function() {
 	}
 });
 
-/*$("#id_date").datepicker()
-
-	.on('changeDate', function(e) {
-
-		console.log("date changed!!!");
-		console.log($(this).val());
-
-		$('#id_date').val() = $(this).val();
-
-	});*/
 
 /* Form submission for filter swap */
-$("#form-submit").submit(function(e){
+$("#form-submit").on('click', function(e){
 
 	e.preventDefault(); //DO NOT PREVENT DEFAULT!
 
@@ -43,13 +33,6 @@ $("#form-submit").submit(function(e){
 
 	var form = $("#swap-add");
 
-	//kwargs = form.serialize() + '&tool=' + $('#first-select').val();
-
-	//console.log('kwargs!');
-	//console.log(kwargs);
-
-
-	//console.log(form); // sanity check
 
 	form.submit(function(){
 

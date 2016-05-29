@@ -1,5 +1,6 @@
 import datetime
 
+from django.http import JsonResponse
 from django.views.generic import ListView, TemplateView, CreateView, UpdateView, DeleteView, DetailView
 from django.core.urlresolvers import reverse_lazy
 from django.http import JsonResponse, HttpResponseRedirect
@@ -92,24 +93,22 @@ class FormHandler(SuccessMessageMixin, CreateView):
 	success_url = reverse_lazy('overview')
 	success_message = 'Successfully added filter swap!'
 	
-	'''
-	def clean(self):
 
-		print 'clean'
-	'''
 
 	def get(self, request, *args, **kwargs):
 
-		print 'get'
+		#print 'get'
 		return super(FormHandler, self).get(request, *args, **kwargs)
 
 	def post(self, request, *args, **kwargs):
+
+		print('post request: %s' % request)
 
 		return super(FormHandler, self).post(request, *args, **kwargs)
 
 	def form_valid(self, form):
 
-		print 'form valid'
+		#print 'form valid'
 		print form
 
 		response = super(FormHandler, self).form_valid(form)
@@ -120,19 +119,19 @@ class FormHandler(SuccessMessageMixin, CreateView):
 
 	def form_invalid(self, form):
 
-		print 'form invalid'
+		#print 'form invalid'
 
-		print form
+		print('form errors: %s' % form.errors)
 
 		response = super(FormHandler, self).form_invalid(form)
 
 		response['temm'] = 'fail'
 
-		return response
+		return JsonResponse(request)
 
 	def get_form_kwargs(self):
 
-		print 'get form kwargs van form handler'
+		#print 'get form kwargs van form handler'
 
 		kwargs = super(FormHandler, self).get_form_kwargs()
 
@@ -188,7 +187,7 @@ class SwapCreateView(CreateView):
 
 		kwargs['tool'] = self.request.GET.get('tool', '')
 
-		print 'model form tool: ' + str(kwargs['tool'])
+		#print 'model form tool: ' + str(kwargs['tool'])
 
 		return kwargs
 

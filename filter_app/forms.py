@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.forms import ModelForm, ModelChoiceField, BaseModelFormSet
 from django.forms.models import inlineformset_factory
 
@@ -9,24 +11,33 @@ class SwapForm(ModelForm):
 
 		super(SwapForm, self).__init__(*args, **kwargs)
 
-		#print 'formswap init'
-
-		#print tool
-
-		
 		if tool != '':
 			self.fields['module'] = ModelChoiceField(queryset=Module.objects.filter(main_tool__name__iexact=tool), to_field_name='name')
-
-			#print 'tool!'
 
 		else:
 			self.fields['module'] = ModelChoiceField(queryset=Module.objects.all(), to_field_name='name')
 
-			#print 'no tool!'
-
 		self.fields['swapped_filter'] = ModelChoiceField(queryset=Filter.objects.all(), to_field_name='product_code')
+	
 
-		
+	def clean(self):
+
+		print("self: %s" % self)
+
+		cleaned_data = super(SwapForm, self).clean()
+
+		date = cleaned_data['date']
+
+		print('jaar: %s' % date.year)
+
+		if date.year == 4444:
+
+			print('------- 4444')
+
+			cleaned_data['date'] = datetime.today()
+
+
+		return cleaned_data
 
 
 	class Meta:
