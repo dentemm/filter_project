@@ -229,8 +229,6 @@ class ModulesForToolView(ListView):
 	template_name = 'tool-view-table-content.html'
 
 	def get_queryset(self):
-
-
 		return self.model.objects.values_list('name', flat=True)
 
 

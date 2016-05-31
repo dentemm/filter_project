@@ -18,7 +18,6 @@ $("#first-select").change(function() {
 
 		//Need to call this, to re-evaluate application.js
 		$.getScript("/static/js/application.js");
-
 	}
 });
 
@@ -26,7 +25,7 @@ $("#first-select").change(function() {
 /* Form submission for filter swap */
 $("#form-submit").on('click', function(e){
 
-	e.preventDefault(); //DO NOT PREVENT DEFAULT!
+	//e.preventDefault(); //DO NOT PREVENT DEFAULT!
 
 	console.log('submit form now');
 
