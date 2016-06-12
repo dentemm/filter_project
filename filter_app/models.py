@@ -72,7 +72,6 @@ class Module(models.Model):
 	'''
 	Module for MES tool
 	'''
-
 	name = models.CharField(max_length=32, unique=False)
 	main_tool = models.ForeignKey(Tool)
 	current_filter = models.ForeignKey(Filter, related_name='+', blank=True, null=True)
@@ -106,7 +105,7 @@ class Module(models.Model):
 
 			last = self.swaps.all()[0]
 
-			print "hier: " + str(last.date)
+			#print "hier: " + str(last.date)
 
 			return last
 
@@ -117,7 +116,7 @@ class Module(models.Model):
 	@property
 	def time_to_next_swap(self):
 
-		print 'time to next swap!!!'
+		#print 'time to next swap!!!'
 
 		last_change = self.last_swap.date
 		interval = self.swap_interval * 30
@@ -127,8 +126,8 @@ class Module(models.Model):
 
 		time_to_next_swap = next_change - datetime.date.today()
 
-		print "time_to_next_swap "
-		print time_to_next_swap.days
+		#print "time_to_next_swap "
+		#print time_to_next_swap.days
 
 		return time_to_next_swap.days
 
@@ -163,13 +162,13 @@ class FilterSwap(models.Model):
 
 			self.module.previous_filter = active_filter
 
-			print 'filter swapped!'
-			print self.module.previous_filter
+			#print 'filter swapped!'
+			#print self.module.previous_filter
 
 
 		#elif not active_filter:
 
-		print 'stel nieuwe filter in!'
+		#print 'stel nieuwe filter in!'
 
 		self.module.current_filter = self.swapped_filter
 

@@ -125,3 +125,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
+
+# MAIL SETTINGS
+
+EMAIL_HOST = 'smtp.webfaction.com'
+EMAIL_PORT = '25'
+EMAIL_HOST_USER = 'filters'
+EMAIL_HOST_PASSWORD = '2Xtranet'
+
