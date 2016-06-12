@@ -20,6 +20,7 @@ class Command(BaseCommand):
 
 
 				print('nog 4 weken te gaan')
+				self.stdout.write(self.style.SUCCESS('4weken!'))
 
 			elif module.time_to_next_swap == 0:
 
@@ -27,6 +28,7 @@ class Command(BaseCommand):
 				send_mail('Filter leeftijd vervalt vandaag!', message, 'filters@imec.thinkmobile.webfactional.com', ['tim.claes@live.be', ], fail_silently=False)
 
 				print('vandaag wisselen!!!')
+				self.stdout.write(self.style.SUCCESS('nu!!!!'))
 
 			else:
 				pass
