@@ -19,7 +19,7 @@ class OverviewPage(ListView):
 
 	def get_queryset(self):
 
-		return self.model.objects.all()
+		return self.model.objects.all().prefetch_related('current_filter', 'previous_filter', 'recommended_filter', 'chemistry')
 
 class HistoryView(ListView):
 
@@ -29,7 +29,7 @@ class HistoryView(ListView):
 
 	def get_queryset(self):
 
-		return self.model.objects.all()
+		return self.model.objects.all().prefetch_related('module', 'swapped_filter', )
 
 class ToolView(ListView):
 
