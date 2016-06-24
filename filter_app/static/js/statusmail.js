@@ -7,7 +7,7 @@ $("#statusmail").on('click', function(e){
 
 		type: 'GET',
 		url: 'http://statusmail.imec.be/json/module/list.json',
-		dataType: 'jsonp',
+		dataType: 'json',
 		crossDomain: true,
 		success: success_handler,
 
