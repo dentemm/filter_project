@@ -6,7 +6,8 @@ $("#statusmail").on('click', function(e){
 	$.ajax({
 
 		type: 'GET',
-		url: 'statusmail.imec.be/json/module/list.json',
+		url: 'http://statusmail.imec.be/json/module/list.json',
+		dataType: 'json',
 		success: success_handler,
 
 		error: function(request, ajaxOptions, thrownError) {
