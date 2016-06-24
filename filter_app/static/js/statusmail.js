@@ -9,7 +9,10 @@ $("#statusmail").on('click', function(e){
 		url: 'http://statusmail.imec.be/json/module/list.json',
 		dataType: 'json',
 		crossDomain: true,
-		success: success_handler,
+		success: function (response) {
+			var resp = JSON.parse(response);
+			alert(resp.status);
+		},
 
 		error: function(request, ajaxOptions, thrownError) {
 			//alert('error!');
