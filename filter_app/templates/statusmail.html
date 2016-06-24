@@ -10,9 +10,14 @@
 {% block content %}
 	<div class="container">
 		<div class="row">
-			<a href="http://statusmail.imec.be/json/module/list.json"  class="btn btn-info">Statusmail</a>			
+			<a id="statusmail" href="http://statusmail.imec.be/json/module/list.json"  class="btn btn-info">Statusmail</a>			
 		</div>
 	</div>
 {% endblock content %}
+
+{% block extra_js %}
+	{{ block.super }}
+	<script type="text/javascript" src="{% static 'js/statusmail.js' %}"></script>
+{% endblock extra_js %}
 
 
