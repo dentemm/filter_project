@@ -14,6 +14,9 @@ $("#statusmail").on('click', function(e){
 		error: function(request, ajaxOptions, thrownError) {
 			//alert('error!');
 			alert('Data is enkel beschikbaar via het imec netwerk');
+			console.log(request);
+			console.log(ajaxOptions);
+			console.log(thrownError);
 			console.log(request.responseText);
 		}
 
