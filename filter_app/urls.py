@@ -23,4 +23,7 @@ urlpatterns = [
 
 
 	url(r'^ajax/(?P<pk>[\w-]+)/$', views.ModuleDetailView.as_view(), name='module-detail'),
+
+	# TESTS
+	url(r'^statusmail/$', views.StatusMailView.as_view(), name='statusmail')
 ]

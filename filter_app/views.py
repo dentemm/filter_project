@@ -9,6 +9,13 @@ from django.contrib.messages.views import SuccessMessageMixin
 from . import models
 from . import forms
 
+# TESTS
+class StatusMailView(TemplateView):
+
+	template_name = 'statusmail.html'
+
+
+
 # Create your views here.
 
 class OverviewPage(ListView):

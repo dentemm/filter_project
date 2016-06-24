@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% load staticfiles %}
+
+{% block extra_css %}
+	{{ block.super }}
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+	<div class="container">
+		<div class="row">
+			<a href="http://statusmail.imec.be/json/module/list.json"  class="btn btn-info">Statusmail</a>			
+		</div>
+	</div>
+{% endblock content %}
+
+
