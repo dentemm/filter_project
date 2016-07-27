@@ -38,6 +38,16 @@ class HistoryView(ListView):
 
 		return self.model.objects.all().prefetch_related('module', 'swapped_filter', )
 
+class OverdueView(ListView):
+
+	model = models.Module
+	context_object_name = 'overdue_list'
+	template_name = 'overdue-view.html'
+
+	def get_queryset(self):
+
+		return self.models.objects.all()
+
 class ToolView(ListView):
 
 	model = models.Tool
