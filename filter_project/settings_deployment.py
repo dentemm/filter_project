@@ -45,6 +45,7 @@ INSTALLED_APPS = (
 
     # additional third party apps 
     'widget_tweaks',
+    'braces',
 
     # custom apps
     'filter_app',
@@ -84,14 +85,14 @@ WSGI_APPLICATION = 'filter_project.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-
 '''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-}'''
+}
+'''
 
 DATABASES = {
     'default': {
@@ -124,3 +125,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
+
+# MAIL SETTINGS
+
+EMAIL_HOST = 'smtp.webfaction.com'
+EMAIL_PORT = '25'
+EMAIL_HOST_USER = 'filters'
+EMAIL_HOST_PASSWORD = '2Xtranet'
+

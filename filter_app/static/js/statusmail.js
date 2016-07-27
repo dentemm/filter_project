@@ -13,7 +13,7 @@ $("#statusmail").on('click', function(e){
 			var resp = JSON.parse(response);
 			alert(resp.status);
 		},
-
+		
 		error: function(request, ajaxOptions, thrownError) {
 			//alert('error!');
 			alert('Data is enkel beschikbaar via het imec netwerk');
