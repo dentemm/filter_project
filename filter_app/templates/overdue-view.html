@@ -26,7 +26,7 @@
 								<th class="header">Module</th>
 								<th class="header">Filter</th>
 								<th class="header">Last change</th>
-								<th class="header">Overdue</th>
+								<th class="header">Overdue (# days)</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -49,7 +49,7 @@
 									{% endif %}
 								</td>
 								<td>
-									{{ module.time_to_next_swap|cut:"-" }} days
+									{{ module.time_to_next_swap|cut:"-" }}
 								</td>
 							</tr>
 							{% endfor %}
