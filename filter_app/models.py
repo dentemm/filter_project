@@ -119,7 +119,12 @@ class Module(models.Model):
 
 		#print 'time to next swap!!!'
 
-		last_change = self.last_swap.date
+		try: 
+			last_change = self.last_swap.date
+
+		except:
+			last_change = 0
+
 		interval = self.swap_interval * 30
 
 		next_change = last_change + datetime.timedelta(interval)
