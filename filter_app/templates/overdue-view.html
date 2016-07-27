@@ -42,7 +42,11 @@
 									{{  module.current_filter }}
 								</td>
 								<td>
-									{{ module.swaps.first.date }}
+									{% if module.swaps.first.date %}
+										{{ module.swaps.first.date }}
+									{% else %}
+										? empty
+									{% endif %}
 								</td>
 								<td>
 									{{ module.time_to_next_swap|cut:"-" }} days
