@@ -61,3 +61,18 @@
 	</div>
 </div>
 {% endblock content %}
+
+{% block extra_js %}
+	{{ block.super }}
+	<script type="text/javascript" src="{% static 'js/tablesorter.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/chart.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/application.js' %}"></script>
+	<script>
+
+		//Table sorter API
+		$("[data-sort=table]").tablesorter({
+	    		// Sort on the second column, in ascending order
+	    		sortList: [[4,0]]
+	  	});
+	</script>
+{% endblock extra_js %}
