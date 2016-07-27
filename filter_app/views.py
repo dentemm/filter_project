@@ -46,7 +46,17 @@ class OverdueView(ListView):
 
 	def get_queryset(self):
 
-		return self.models.objects.all()
+		overdue_list = []
+
+		for module in self.model.objects.all():
+
+			if module.time_to_next_swap < 1:
+
+				overdue_list.append(module)
+
+		sorted_list = sorted(overdue_list, key=lambda t: -t.time_to_next_swap)
+
+		return sorted_list
 
 class ToolView(ListView):
 
