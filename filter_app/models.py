@@ -123,7 +123,7 @@ class Module(models.Model):
 			last_change = self.last_swap.date
 
 		except:
-			return -9999
+			return 9999
 
 		interval = self.swap_interval * 30
 
