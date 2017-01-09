@@ -40,7 +40,7 @@ def overviewExport(request):
 
 	writer = csv.writer(response)
 
-	writer.writerow(['Main Tool', 'Module', 'Chemistry', 'Current Filter', 'Previous Filter', 'Recommended Filter', 'Date Last Swap'])
+	writer.writerow(['Main Tool', 'Module', 'Current Filter', 'Previous Filter', 'Recommended Filter', 'Date Last Swap'])
 
 
 	for module in models.Module.objects.all():
@@ -50,10 +50,10 @@ def overviewExport(request):
 		current_filter = module.current_filter
 		previous_filter = module.previous_filter
 		recommended_filter = module.recommended_filter
-		chemistry = module.chemistry
+		#chemistry = module.chemistry
 		last_swap = module.last_swap
 
-		writer.writerow([tool, module_name, chemistry, current_filter, previous_filter, recommended_filter, last_swap])
+		writer.writerow([tool, module_name, current_filter, previous_filter, recommended_filter, last_swap])
 
 	return response
 
