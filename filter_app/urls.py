@@ -5,6 +5,8 @@ from . import views
 urlpatterns = [
 
 	url(r'^$', views.OverviewPage.as_view(), name='overview'),
+	url(r'^export/$', views.overviewExport, name='overview-export'),
+
 	url(r'history/$', views.HistoryView.as_view(), name='history'),
 	url(r'^tools/$', views.ToolView.as_view(), name='tools'),
 	url(r'^new/$', views.SwapCreateView.as_view(), name='new-swap'),

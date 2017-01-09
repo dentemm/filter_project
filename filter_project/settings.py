@@ -127,7 +127,7 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
 # MAIL SETTINGS
-
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.webfaction.com'
 EMAIL_PORT = '25'
 EMAIL_HOST_USER = 'filters'

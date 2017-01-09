@@ -1,6 +1,8 @@
 import datetime
+import csv
 
-from django.http import JsonResponse
+
+from django.http import JsonResponse, HttpResponse
 from django.views.generic import ListView, TemplateView, CreateView, UpdateView, DeleteView, DetailView
 from django.core.urlresolvers import reverse_lazy
 from django.http import JsonResponse, HttpResponseRedirect
@@ -27,6 +29,33 @@ class OverviewPage(ListView):
 	def get_queryset(self):
 
 		return self.model.objects.all().prefetch_related('current_filter', 'previous_filter', 'recommended_filter', 'chemistry')
+
+def overviewExport(request):
+
+	response = HttpResponse(content_type='text/csv')
+
+
+	response = HttpResponse(content_type='text/csv')
+	response['Content-Disposition'] = 'attachment; filename="overview.csv"'
+
+	writer = csv.writer(response)
+
+	writer.writerow(['Main Tool', 'Module', 'Chemistry', 'Current Filter', 'Previous Filter', 'Recommended Filter', 'Date Last Swap'])
+
+
+	for module in models.Module.objects.all():
+
+		tool = module.main_tool
+		module_name = module.name
+		current_filter = module.current_filter
+		previous_filter = module.previous_filter
+		recommended_filter = module.recommended_filter
+		chemistry = module.chemistry
+		last_swap = module.last_swap
+
+		writer.writerow([tool, module_name, chemistry, current_filter, previous_filter, recommended_filter, last_swap])
+
+	return response
 
 class HistoryView(ListView):
 
